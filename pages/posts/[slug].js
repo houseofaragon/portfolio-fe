@@ -4,7 +4,6 @@ import Container from '@/components/container'
 import PostBody from '@/components/post-body'
 import MoreStories from '@/components/more-stories'
 import Header from '@/components/header'
-import PostHeader from '@/components/post-header'
 import SectionSeparator from '@/components/section-separator'
 import Layout from '@/components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '@/lib/api'
@@ -13,63 +12,82 @@ import Head from 'next/head'
 import { CMS_NAME } from '@/lib/constants'
 import markdownToHtml from '@/lib/markdownToHtml'
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, morePosts, preview, error }) {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
-  }
+  const { title, content } = post;
+  console.log('post', post)
   return (
     <Layout preview={preview}>
-      <Container>
         <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
+          error ? <ErrorPage statusCode={404} /> :
           <>
-            <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title} | Karen Aragon
                 </title>
-                <meta property="og:image" content={post.ogImage.url} />
               </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </article>
-            <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+              <div className="max-w-2xl mx-auto pr-10">
+                <h2 className="text-xl md:text-l font-bold">{post.title}</h2>
+                <PostBody content={post.content} />
+              </div>
           </>
         )}
-      </Container>
+        <SectionSeparator />
+        {morePosts && morePosts.length > 0 && <MoreStories posts={morePosts} />}
     </Layout>
   )
 }
 
 export async function getStaticProps({ params, preview = null }) {
+  console.log('params', params)
   const data = await getPostAndMorePosts(params.slug, preview)
-  const content = await markdownToHtml(data?.posts[0]?.content || '')
+  console.log(data)
+  if (!data || !data.posts || !data.posts.data.length){
+    return {
+      props: {
+        preview,
+        post: {},
+        morePosts: data.morePosts.data,
+        error: true
+      },
+    }
+  }
 
+  const post = data?.posts?.data[0]
+  const { content } = post?.attributes;
+
+  // const postContent = await Promise.all(blocks.map(async block => {
+  //   let contentToConvert = '';
+  //   if(['ComponentSharedRichText', 'ComponentSharedQuote'].includes(block.__typename) ) {
+  //     contentToConvert = block.body
+  //   }
+  //   return await markdownToHtml(content)
+  // }))
+
+  const postContent =  await markdownToHtml(content)
   return {
     props: {
       preview,
       post: {
-        ...data?.posts[0],
-        content,
+        ...post.attributes,
+        content: postContent,
       },
-      morePosts: data?.morePosts,
+      morePosts: data.morePosts.data,
+      error: false
     },
   }
 }
 
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug()
+  console.log('allPosts', await allPosts)
   return {
-    paths: allPosts?.map((post) => `/posts/${post.slug}`) || [],
+    paths: allPosts?.map((post) => {
+      return `/posts/${post.attributes.slug}`
+    }) || [],
     fallback: true,
   }
 }

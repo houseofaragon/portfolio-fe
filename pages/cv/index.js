@@ -6,29 +6,19 @@ import Layout from '@/components/layout'
 import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '@/lib/constants'
+import { Resume } from '@/components/resume'
 
-export default function Index({ allPosts, preview }) {
-  const heroPost = allPosts[0]
-  console.log(heroPost)
-  const {
-    title, excerpt, slug
-  } = heroPost.attributes
-  const morePosts = allPosts.slice(1)
+export default function CV() {
   return (
     <>
-      <Layout preview={preview}>
+      <Layout>
         <Head>
           <title>Karen Aragon</title>
         </Head>
-        <Intro />
+        <Container>
+          <Resume />
+        </Container>
       </Layout>
     </>
   )
-}
-
-export async function getStaticProps({ preview = null }) {
-  const allPosts = (await getAllPostsForHome(preview)) || []
-  return {
-    props: { allPosts, preview },
-  }
 }
