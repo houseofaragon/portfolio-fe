@@ -58,37 +58,35 @@
 	padding-bottom: 1em;
 	position: relative;
 }
-  .timeline-list:before {
-		content: "";
-     border-left: 1px solid #000000;
-     left: -0.25em;
-     top: 2em;
-     height: 100%;
-     position: absolute;
-     bottom: 0;
-     top: 0;
-    transform-origin:0 0;
-    animation:scaleVertical 3s 1s ease both 1;
-	}
+
+.timeline-list:before {
+  content: "";
+  border-left: 1px solid #000000;
+  left: -0.25em;
+  top: 2em;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  transform-origin:0 0;
+  animation:scaleVertical 3s 1s ease both 1;
+}
 
 .timeline-list:after {
-		content: "";
-    clear:both;
-		position: absolute;
-		bottom: 0px;
-		left: -0.85em;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		background: none repeat scroll 0% 0% rgb(0, 0, 0);
-		border: 5px solid #DDD;
-		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    animation:revealScaleUp 0.75s 2.82s ease both 1;
-	}
+  content: "";
+  clear:both;
+  position: absolute;
+  bottom: 0px;
+  left: -0.85em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: none repeat scroll 0% 0% rgb(0, 0, 0);
+  border: 5px solid #DDD;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  animation:revealScaleUp 0.75s 2.82s ease both 1;
+}
 
-/* //list animation 
-//scale in the circle, follwoed by the list item
-//the border must also animate in. */
 .timeline-list li {
 	margin:0 0 3em 0;
 	padding:0 2em 0em 2em;
@@ -138,6 +136,37 @@
 .timeline-list li:nth-child(4) .content {
   animation-delay:2.3s;
 }
+.timeline-list li:nth-child(5):before {
+  animation-delay:2s;
+}
+.timeline-list li:nth-child(5) .content {
+  animation-delay:2.3s;
+}
+.timeline-list li:nth-child(6):before {
+  animation-delay:2s;
+}
+.timeline-list li:nth-child(6) .content {
+  animation-delay:2.3s;
+}
+.timeline-list li:nth-child(7):before {
+  animation-delay:2s;
+}
+.timeline-list li:nth-child(7) .content {
+  animation-delay:2.3s;
+}
+.timeline-list li:nth-child(8):before {
+  animation-delay:2s;
+}
+.timeline-list li:nth-child(8) .content {
+  animation-delay:2.3s;
+}
+.timeline-list li:nth-child(9):before {
+  animation-delay:2s;
+}
+.timeline-list li:nth-child(9) .content {
+  animation-delay:2.3s;
+}
+
 @keyframes revealFromLeft {
   0% {
     transform:translateX(-1em);

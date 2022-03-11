@@ -31,15 +31,23 @@ export default function Index({ allPosts, preview }) {
               <p>Presented here are some of those notes edited in a much more cohesive manner. Some of it is stuff I just learned recently for example Vue and Nuxt. Some of it is stuff I think about a lot in between coding. Maybe it'll help someone?</p>
             </div>
           <div class="basis-2/3">
+          <ul class="timeline-list">
             {allPosts.map((post) => {
-              return <PostPreview
-                key={post.attributes.slug}
-                title={post.attributes.title}
-                coverImage="{post.attributes.cover}"
-                slug={post.attributes.slug}
-                excerpt={post.attributes.excerpt}
-              />
+              return (
+                <li>
+                  <div class="content">
+                    <PostPreview
+                      key={post.attributes.slug}
+                      title={post.attributes.title}
+                      coverImage="{post.attributes.cover}"
+                      slug={post.attributes.slug}
+                      excerpt={post.attributes.excerpt}
+                    />
+                  </div>
+                </li>
+              )
             })}
+            </ul>
           </div>
         </div>
         </Container>
