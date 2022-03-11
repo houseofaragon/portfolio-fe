@@ -7,6 +7,7 @@
 
 .body {
   font-family: 'Antonio';
+  font-size: 1em;
 }
 
 .grayscale {
@@ -44,9 +45,7 @@
 	letter-spacing:0.02em;
 
 	@media all and (min-width:40em) {
-
 	font-size: 2.5em;
-
 	}
 }
 
