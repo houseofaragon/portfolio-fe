@@ -11,10 +11,11 @@ export default function HeroPost({
   author,
   slug,
 }) {
+
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage title={title} url={coverImage.url} slug={slug} />
+        {/* <CoverImage title={title} url={coverImage.data.attributes.url} slug={slug} /> */}
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
@@ -23,13 +24,13 @@ export default function HeroPost({
               <a className="hover:underline">{title}</a>
             </Link>
           </h3>
-          <div className="mb-4 md:mb-0 text-lg">
+          {/* <div className="mb-4 md:mb-0 text-lg">
             <Date dateString={date} />
-          </div>
+          </div> */}
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
+          {/* <Avatar name={author.name} picture={author.picture} /> */}
         </div>
       </div>
     </section>

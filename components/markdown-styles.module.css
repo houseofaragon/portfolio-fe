@@ -7,6 +7,8 @@
 .markdown ol,
 .markdown blockquote {
   @apply my-6;
+  font-size: 15px;
+  letter-spacing: 0.5px;
 }
 
 .markdown h2 {
@@ -15,4 +17,11 @@
 
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
+  font-size: 18px;
+}
+
+.markdown pre {
+  font-size: 12px;
+  background-color: rgb(245, 244, 242);
+  padding: 20px;
 }
