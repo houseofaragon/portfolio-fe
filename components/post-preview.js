@@ -10,13 +10,14 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <div>
-      <h3 className="text-l mb-3 leading-snug">
-        <Link href={`/posts/${slug}`}>
-          <a className="hover:underline">{title}</a>
-        </Link>
-      </h3>
-      <p className="text-sm leading-relaxed mb-4 pr-20">{excerpt}</p>
-    </div>
+      <Link href={`/posts/${slug}`}>
+        <div className="cursor-pointer pr-10 pt-5 transition ease-in-out delay-150 hover:bg-slate-50 duration-300" >
+          <h3 className="mb-3">
+              {title}
+          </h3>
+          <p className="text-sm leading-relaxed mb-4">{excerpt}</p>
+        </div>
+      </Link>
+
   )
 }

@@ -17,17 +17,16 @@ export default function Intro() {
         justifyContent: "flex-start",
       }}>
       <div className='mt-20' style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "center" }}>
-        <p style={{ flex: "1 1 0%", height: "100%", fontSize: 12, lineHeight: "1.5em", color: "black"}}>
-          <b>Hello, I'm Karen.</b>
+        <div style={{ flex: "1 1 0%", height: "100%", fontSize: 12, lineHeight: "1.5em", color: "black"}}>
+          <p style={{ fontFamily: "Akkurat"}}>Hello, I'm Karen.</p>
           <br />
           <p style={{ width: "300px", maxWidth: "300px" }}>
-          I'm an artist and software engineer. I've worked at large companies to 2 person teams, as a Team Leader, Manager, and Individual Contributor.
+          I'm an artist and software engineer.  I've worked at large companies to 2 person teams, as a Team Leader, Manager, and Individual Contributor.
 
           My journey into engineering started with Frogger.
           </p>
           <br />
-          <b>—</b>
-        </p>
+        </div>
         <div style={{ width: 10 }} />
       </div>
       <div style={{ height: 10 }} />
@@ -64,7 +63,7 @@ export default function Intro() {
         <p
           className="full"
           style={{
-            fontFamily: "'Antonio', sans-serif",
+            fontFamily: "'Akkurat', sans-serif",
             flex: "1 1 0%",
             fontSize: 16,
             fontWeight: "700",

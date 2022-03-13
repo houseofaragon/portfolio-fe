@@ -19,31 +19,31 @@ export default function Header() {
         <div style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
           <p
             style={{
-              fontFamily: "'Antonio', sans-serif",
-              flex: "1 1 0%",
-              height: 30,
-              fontSize: 30,
+              fontFamily: "'Romana-BT-Roman', sans-serif",
+              flex: "0.8 1 0%",
+              height: "30px",
+              fontSize: "2em",
               fontWeight: "700",
               lineHeight: "30px",
               color: "black",
               letterSpacing: -2,
             }}>
             <Link href={`/`}>
-              <a className="hover:underline">         KAREN ARAGON</a>
+              <a   className="hover:underline"> K Aragon</a>
             </Link>
           </p>
           <div data-testid="header-menu" style={{ flex: "1 1 0%", display: "flex", gap: "2em" }}>
             <Link href={`/work`}>
-              <a className="hover:underline" style={{ flex: "1 1 0%", height: 12, fontSize: 12, lineHeight: "12px", textAlign: "center", color: "black" }}>WORK</a>
+              <a className="hover:underline">WORK</a>
             </Link>
             <Link href={`/posts`}>
-              <a className="hover:underline" style={{ flex: "1 1 0%", height: 12, fontSize: 12, lineHeight: "12px", textAlign: "center", color: "black" }}>WRITING</a>
+              <a className="hover:underline">WRITING</a>
             </Link>
             <Link href={`/cv`}>
-              <a className="hover:underline" style={{ flex: "1 1 0%", height: 12, fontSize: 12, lineHeight: "12px", textAlign: "center", color: "black" }}>CV</a>
+              <a className="hover:underline">CV</a>
             </Link>
           </div>
-          <p style={{ flex: "1 1 0%", height: 30, fontSize: 30, lineHeight: "30px", textAlign: "right", color: "black" }}>⎑</p>
+          <p>&#9999;</p>
         </div>
       </div>
       <div style={{ height: 60 }} />

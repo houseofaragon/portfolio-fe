@@ -2,21 +2,23 @@ export function Resume() {
   return (
     <div class="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
       <div class="basis-1/3 mr-20">
-        <h2 className="text-3xl md:text-l"><b>——</b> Experience </h2>
+        <h2 className="text-3xl md:text-l"><b>—</b> Experience </h2>
         <br />
-        <p>I would describe myself as a fullstack engineer with a leaning towards frontend. I say fullstack because the scope of my experience has not been siloed to either camps (frontend/backend).</p>
-        <br />
-        <p>As an engineer I have:</p>
-        <p><b>—</b> Created components and maintained a design system in <strong>React/TS</strong></p>
-        <p><b>—</b> Built numerous microservices in <strong>Node</strong> and <strong>Serverless</strong></p>
-        <p><b>—</b> Contributed, refactored, and maintained monoliths in <strong>PHP</strong> </p>
-        <p><b>—</b> Spun up services and databases in <strong>Terraform</strong> </p>
-        <p><b>—</b> Wrote numerous integrations and e2e tests with <strong>Codeception</strong> </p>
+        <div className="description">
+          <p>I would describe myself as a fullstack engineer with a leaning towards frontend. I say fullstack because the scope of my experience has not been siloed to either camps (frontend/backend).</p>
+          <br />
+          <p>As an engineer I have:</p>
+          <p><b>—</b> Created components and maintained a design system in <strong>React/TS</strong></p>
+          <p><b>—</b> Built numerous microservices in <strong>Node</strong> and <strong>Serverless</strong></p>
+          <p><b>—</b> Contributed, refactored, and maintained monoliths in <strong>PHP</strong> </p>
+          <p><b>—</b> Spun up services and databases in <strong>Terraform</strong> </p>
+          <p><b>—</b> Wrote numerous integrations and e2e tests with <strong>Codeception</strong> </p>
+        </div>
       </div>
-      <div class="basis-2/3 l-contained mt-5">
+      <div class="basis-2/3 l-contained">
         <ul class="timeline-list">
           <li>
-            <div class="content">
+            <div class="content pr-10 pt-5">
               <h3>Powerschool</h3>
               <p>Associate Engineering Manager</p>
               <br/>
@@ -26,7 +28,7 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div class="content">
+          <div class="content pr-10 pt-5">
             <h3>Schoology</h3>
             <p>Lead Engineer</p>
             <br/>
@@ -36,7 +38,7 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div class="content">
+          <div class="content pr-10 pt-5">
             <h3>Schoology</h3>
             <p>Senior Software Engineer</p>
             <br/>
@@ -46,7 +48,7 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div class="content">
+          <div class="content pr-10 pt-5">
             <h3>Enigma</h3>
             <p>Software Engineer</p>
             <br/>
@@ -57,7 +59,7 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div class="content">
+          <div class="content pr-10 pt-5">
             <h3>dMetrics</h3>
             <p>Software Engineer</p>
             <br/>

@@ -9,16 +9,19 @@
   @apply my-6;
   font-size: 15px;
   letter-spacing: 0.5px;
+  font-family: 'Akkurat-Regular', Arial, Helvetica, sans-serif;
+
 }
 
-.markdown h2 {
+/* .markdown h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }
 
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
-  font-size: 18px;
-}
+  font-size: 19px;
+  font-family: 'Romana-BT-Roman', Arial, Helvetica, sans-serif;
+} */
 
 .markdown pre {
   font-size: 12px;

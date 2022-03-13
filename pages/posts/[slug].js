@@ -35,7 +35,7 @@ export default function Post({ post, morePosts, preview, error }) {
                 </title>
               </Head>
               <div className="max-w-2xl mx-auto pr-10">
-                <h2 className="text-xl md:text-l font-bold">{title}</h2>
+                <h2>{title}</h2>
                 <br/>
                 {img && img.data[0] && img.data[0]. attributes &&
                 <Image
