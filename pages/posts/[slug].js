@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Container from '@/components/container'
 import PostBody from '@/components/post-body'
 import MoreStories from '@/components/more-stories'
 import Header from '@/components/header'
@@ -9,10 +8,8 @@ import Layout from '@/components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '@/lib/api'
 import PostTitle from '@/components/post-title'
 import Head from 'next/head'
-import { CMS_NAME } from '@/lib/constants'
 import markdownToHtml from '@/lib/markdownToHtml'
-import ReactMarkdown from 'react-markdown'
-import { rehype } from 'rehype'
+
 import Image from 'next/image'
 
 export default function Post({ post, morePosts, preview, error }) {

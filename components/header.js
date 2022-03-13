@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function Header() {
+  const router = useRouter()
+  console.log(router)
   return (
     <>
       <div
@@ -29,18 +32,31 @@ export default function Header() {
               letterSpacing: -2,
             }}>
             <Link href={`/`}>
-              <a   className="hover:underline"> K Aragon</a>
+              <a className="hover:underline"> K Aragon</a>
             </Link>
           </p>
           <div data-testid="header-menu" style={{ flex: "1 1 0%", display: "flex", gap: "2em" }}>
             <Link href={`/work`}>
-              <a className="hover:underline">WORK</a>
+              <a className="text-red"
+                style={router.pathname === '/work' ? { textUnderlineOffset: "5px",
+                textDecoration: "underline" 
+              } 
+            : {}}>WORK</a>
             </Link>
             <Link href={`/posts`}>
-              <a className="hover:underline">WRITING</a>
+              <a className="" style={router.pathname === '/posts' 
+                ? { textUnderlineOffset: "5px",
+                    textDecoration: "underline" 
+                  } 
+                : {}}>WRITING</a>
             </Link>
             <Link href={`/cv`}>
-              <a className="hover:underline">CV</a>
+              <a className="" style={
+                router.pathname === '/cv' 
+                ? { textUnderlineOffset: "5px",
+                textDecoration: "underline" 
+              } 
+            : {} }>CV</a>
             </Link>
           </div>
           <p>&#9999;</p>
