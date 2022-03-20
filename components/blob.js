@@ -71,7 +71,6 @@ function Blob() {
 
     meshRef.current.rotation.y += OPTIONS.perlin.vel;
     meshRef.current.rotation.x = (Math.sin(time * OPTIONS.spin.sinVel) * OPTIONS.spin.ampVel) * Math.PI / 180;
-
     shaderRef.current.uniforms.time.value = OPTIONS.perlin.speed * (Date.now() - start);
     shaderRef.current.uniforms.pointscale.value = OPTIONS.perlin.perlins;
     shaderRef.current.uniforms.decay.value = OPTIONS.perlin.decay;
