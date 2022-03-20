@@ -3,7 +3,7 @@ import React, { useRef, Suspense, useLayoutEffect } from 'react'
 import { extend, Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
 import glsl from 'glslify'
-import { fragmentShader, vertexShader } from '@/lib/waveShader'
+import { fragmentShader, vertexShader } from '@/lib/blobShader'
 
 const RippleEffect = (function () {
   function RippleEffect(renderer, width, height) {

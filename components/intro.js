@@ -1,5 +1,5 @@
 import { useMousePosition } from "@/lib/useMousePosition";
-import PerlinBlob from "./perlinBlob";
+import Blob from "./blob";
 
 export default function Intro() {  
   const mousePosition = useMousePosition()
@@ -22,11 +22,7 @@ export default function Intro() {
         <div className="text-left max-w-[400px]">
           <p>Hello, I'm Karen.</p>
           <br />
-          <p>
-          I'm an artist and software engineer.  I've worked at large companies to 2 person teams, as a Team Leader, Manager, and Individual Contributor.
-
-          My journey into engineering started with Frogger.
-          </p>
+          <p>I'm an artist and software engineer.</p>
           <br />
         </div>
         <div style={{ width: 10 }} />
@@ -58,9 +54,7 @@ export default function Intro() {
           justifyContent: "center",
         }}>
         <p className="full" style={{ fontSize: '14px',whiteSpace: "nowrap", flex: "1 1 0%" }}>
-            You are here 
-            x: {mousePosition.x}
-            y: {mousePosition.y}
+            {`You are here: { x: ${mousePosition.x}, y: ${mousePosition.y} }`}
         </p>
         <div style={{ width: 10 }} />
         <p className="full text-center">
@@ -68,7 +62,7 @@ export default function Intro() {
         </p>
         <p className="full" style={{ fontSize: '14px', flex: "1 1 0%", lineHeight: "1em", textAlign: "right", color: "black" }}>Based in NY</p>
       </div>
-      <PerlinBlob />
+      <Blob />
     </div>
   )
 }
