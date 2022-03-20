@@ -6,35 +6,34 @@ import Header from '@/components/header'
 import SectionSeparator from '@/components/section-separator'
 import Layout from '@/components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '@/lib/api'
-import PostTitle from '@/components/post-title'
+// import PostTitle from '@/components/post-title'
 import Head from 'next/head'
-import markdownToHtml from '@/lib/markdownToHtml'
+import { markdownToHtml } from '@/lib/markdownToHtml'
+import 'highlight.js/styles/atom-one-light.css';
 
 import Image from 'next/image'
 
 export default function Post({ post, morePosts, preview, error }) {
   const router = useRouter()
-  console.log(post)
-
   const { title, content, slug, img } = post;
   const htmlContent = `<div>${content}</div>`
   return (
     <Layout preview={preview}>
         <Header />
         {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+          <div>Loading</div>
         ) : (
           error ? <ErrorPage statusCode={404} /> :
           <>
               <Head>
                 <title>
-                  {title} | Karen Aragon
+                  Karen Aragon | {title}
                 </title>
               </Head>
               <div className="max-w-2xl mx-auto pr-10">
                 <h2>{title}</h2>
                 <br/>
-                {img && img.data[0] && img.data[0]. attributes &&
+                {img && img.data[0] && img.data[0].attributes &&
                 <Image
                   width={2000}
                   height={1000}
