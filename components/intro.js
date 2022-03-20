@@ -1,7 +1,9 @@
-import { CMS_NAME, CMS_URL } from '@/lib/constants'
-import Link from 'next/link'
-import Header from './header'
-export default function Intro() {
+import { useMousePosition } from "@/lib/useMousePosition";
+import Blob from "./blob";
+
+export default function Intro() {  
+  const mousePosition = useMousePosition()
+
   return (
     <div className=''
       style={{
@@ -16,18 +18,13 @@ export default function Intro() {
         alignItems: "flex-start",
         justifyContent: "flex-start",
       }}>
-      <div className='mt-20' style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "center" }}>
-        <p style={{ flex: "1 1 0%", height: "100%", fontSize: 12, lineHeight: "1.5em", color: "black"}}>
-          <b>Hello, I'm Karen.</b>
+      <div className='mt-20' style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "left" }}>
+        <div className="text-left max-w-[400px]">
+          <p>Hello, I'm Karen.</p>
           <br />
-          <p style={{ width: "300px", maxWidth: "300px" }}>
-          I'm an artist and software engineer. I've worked at large companies to 2 person teams, as a Team Leader, Manager, and Individual Contributor.
-
-          My journey into engineering started with Frogger.
-          </p>
+          <p>I'm an artist and software engineer.</p>
           <br />
-          <b>—</b>
-        </p>
+        </div>
         <div style={{ width: 10 }} />
       </div>
       <div style={{ height: 10 }} />
@@ -45,6 +42,7 @@ export default function Intro() {
         }}>
       </div>
       <div
+      className="w-full"
         style={{
           pointerEvents: "all",
           pointer: "auto",
@@ -55,29 +53,16 @@ export default function Intro() {
           alignItems: "flex-end",
           justifyContent: "center",
         }}>
-        <p className="full" style={{ whiteSpace: "nowrap", flex: "1 1 0%", fontSize: 12, lineHeight: "1.5em", color: "black" }}>
-          <b>Stack</b>
-          <br />
-          Node React TS PHP Python
+        <p className="full" style={{ fontSize: '14px',whiteSpace: "nowrap", flex: "1 1 0%" }}>
+            {`You are here: { x: ${mousePosition.x}, y: ${mousePosition.y} }`}
         </p>
         <div style={{ width: 10 }} />
-        <p
-          className="full"
-          style={{
-            fontFamily: "'Antonio', sans-serif",
-            flex: "1 1 0%",
-            fontSize: 16,
-            fontWeight: "700",
-            lineHeight: "1em",
-            textAlign: "center",
-            color: "black",
-            letterSpacing: -0.5,
-            whiteSpace: "nowrap",
-          }}>
+        <p className="full text-center">
           Hi!
         </p>
-        <p className="full" style={{ flex: "1 1 0%", fontSize: 12, lineHeight: "1em", textAlign: "right", color: "black" }}></p>
+        <p className="full" style={{ fontSize: '14px', flex: "1 1 0%", lineHeight: "1em", textAlign: "right", color: "black" }}>Based in NY</p>
       </div>
+      <Blob />
     </div>
   )
 }

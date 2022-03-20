@@ -1,5 +1,3 @@
-import Alert from './alert'
-import Footer from './footer'
 import Meta from './meta'
 import Header from './header'
 
@@ -23,7 +21,7 @@ export default function Layout({ preview, children }) {
               color: "black",
               whiteSpace: "nowrap",
             }}>
-            I'm happy you're here &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ●
+            ☺ &nbsp;&nbsp;&nbsp;&nbsp; I'm happy you're here &nbsp;&nbsp;&nbsp;&nbsp; ☺
           </p>
         </div>
             {children}
