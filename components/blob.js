@@ -4,7 +4,6 @@ import { Canvas, extend, useFrame } from '@react-three/fiber'
 import { shaderMaterial } from "@react-three/drei"
 import glsl from 'glslify'
 import { OrbitControls } from '@react-three/drei'
-// import { GUI } from 'dat.gui'
 
 const start = Date.now();
 
@@ -15,8 +14,6 @@ const OPTIONS = {
     perlins: 1.2,
     decay: 0.1,
     complex: 0.3,
-    waves: 15.0,
-    eqcolor: 12.897,
     fragment: true,
   },
   spin: {
@@ -53,17 +50,16 @@ const BlobShaderMaterial = shaderMaterial(
       value: 0.0
     }
   },
-  // Vertex Shader
   glsl(vertexShader),
-  // Fragment Shader
   glsl(fragmentShader)
 )
 
 extend({ BlobShaderMaterial })
 
-function Blob() {
+function Blob({ hue, wave}) {
   const meshRef = useRef()
   const shaderRef = useRef()
+
   useFrame(({ clock }) => {
     if (!meshRef || !meshRef.current) return
 
@@ -75,8 +71,8 @@ function Blob() {
     shaderRef.current.uniforms.pointscale.value = OPTIONS.perlin.perlins;
     shaderRef.current.uniforms.decay.value = OPTIONS.perlin.decay;
     shaderRef.current.uniforms.complex.value = OPTIONS.perlin.complex;
-    shaderRef.current.uniforms.waves.value = OPTIONS.perlin.waves;
-    shaderRef.current.uniforms.eqcolor.value = OPTIONS.perlin.eqcolor;
+    shaderRef.current.uniforms.waves.value = wave;
+    shaderRef.current.uniforms.eqcolor.value = hue;
   })
 
   return (
@@ -86,16 +82,16 @@ function Blob() {
     </points>
   )
 }
-// https://codepen.io/vcomics/pen/djqNrm
-export default function PerlinBlob() {
+
+export default function PerlinBlob({ hue, wave}) {
   return (
-    <div className="absolute w-full h-full l-0 t-0">
+    <div className="absolute w-full h-full l-0 t-0 p-0 m-0">
       <Canvas
         camera={{ fov: 55, aspect: 2, zoom: 0.27, near: 1, far: 1000 }}
       >
         <OrbitControls />
         <Suspense fallback={null}>
-          <Blob />
+          <Blob hue={hue} wave={wave} />
         </Suspense>
       </Canvas>
     </div>

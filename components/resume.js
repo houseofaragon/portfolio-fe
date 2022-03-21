@@ -1,7 +1,7 @@
 export function Resume() {
   return (
-    <div class="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
-      <div class="basis-1/3 mr-20">
+    <div className="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
+      <div className="basis-1/3 mr-20">
         <h2 className="text-3xl md:text-l"><b>—</b> Experience </h2>
         <br />
         <div className="description">
@@ -15,10 +15,10 @@ export function Resume() {
           <p><b>—</b> Wrote numerous integrations and e2e tests with <strong>Codeception</strong> </p>
         </div>
       </div>
-      <div class="basis-2/3 l-contained">
-        <ul class="timeline-list">
+      <div className="basis-2/3 l-contained">
+        <ul className="timeline-list">
           <li>
-            <div class="content pr-10 pt-5">
+            <div className="content pr-10 pt-5">
               <h3>Powerschool</h3>
               <p>Associate Engineering Manager</p>
               <br/>
@@ -28,7 +28,7 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div class="content pr-10 pt-5">
+          <div className="content pr-10 pt-5">
             <h3>Schoology</h3>
             <p>Lead Engineer</p>
             <br/>
@@ -38,7 +38,7 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div class="content pr-10 pt-5">
+          <div className="content pr-10 pt-5">
             <h3>Schoology</h3>
             <p>Senior Software Engineer</p>
             <br/>
@@ -48,7 +48,7 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div class="content pr-10 pt-5">
+          <div className="content pr-10 pt-5">
             <h3>Enigma</h3>
             <p>Software Engineer</p>
             <br/>
@@ -59,7 +59,7 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div class="content pr-10 pt-5">
+          <div className="content pr-10 pt-5">
             <h3>dMetrics</h3>
             <p>Software Engineer</p>
             <br/>

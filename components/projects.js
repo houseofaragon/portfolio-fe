@@ -1,11 +1,11 @@
 export function Projects({ projects }) {
   return (
     <div className=''>
-      <ul class="timeline-list">
+      <ul className="timeline-list">
         {projects.map((project, index) => {
           return (
-            <li>
-              <div class="content">
+            <li key={index}>
+              <div className="content">
                 <Project
                   project={project}
                   index={index}

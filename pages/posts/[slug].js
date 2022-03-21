@@ -10,8 +10,6 @@ import Head from 'next/head'
 import { markdownToHtml } from '@/lib/markdownToHtml'
 import 'highlight.js/styles/atom-one-light.css';
 
-import Image from 'next/image'
-
 function PostContent({ post }) {
   const { title, content, slug, img } = post
   const htmlContent = `<div>${content}</div>`
@@ -27,7 +25,7 @@ function PostContent({ post }) {
         <h2>{title}</h2>
         <br/>
         {img && img.data[0] && img.data[0].attributes &&
-        <Image
+        <img
           width={2000}
           height={1000}
           src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${img.data[0]?.attributes?.url}`}
@@ -96,6 +94,6 @@ export async function getStaticPaths() {
     paths: allPosts?.map((post) => {
       return `/posts/${post.attributes.slug}`
     }) || [],
-    fallback: true,
+    fallback: false,
   }
 }

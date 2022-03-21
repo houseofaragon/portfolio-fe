@@ -12,12 +12,11 @@ export default function Work({projects}) {
           <title>Karen Aragon</title>
         </Head>
         <Container>
-          <div class="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
-            <div class="basis-1/3 mr-20">
-              <h2 className="text-3xl md:text-l sm:text-s"><b>—</b> Work </h2>
+          <div className="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
+            <div className="basis-1/3 mr-10">
+              <h2 className="text-m md:text-xl lg:text-3xl"><b>—</b> Work </h2>
               <br/>
-              <br/>
-              <div className='description'>
+              <div className='description text-sm md:text-l'>
                 <p>For the past 4 years I have worked on a lot of projects that have impacted users' lives. Ranging from scaling to microservices to design systems.</p>
                 <br />
                 <p>
@@ -29,7 +28,7 @@ export default function Work({projects}) {
                 </p>
               </div>
             </div>
-            <div class="basis-2/3">
+            <div className="basis-2/3">
               <Projects projects={projects}/>
             </div>
         </div>

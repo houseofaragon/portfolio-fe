@@ -1,69 +1,53 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export default function Header() {
+export default function Header({ isDarkTheme, handleTheme }) {
   const router = useRouter()
 
   return (
     <>
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          padding: 40,
-          display: "inline-flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "flex-start",
-          zIndex: 1
-        }}>
-        <div style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-          <p
-            style={{
-              fontFamily: "'Romana-BT-Roman', sans-serif",
-              flex: "0.8 1 0%",
-              height: "30px",
-              fontSize: "2em",
-              fontWeight: "700",
-              lineHeight: "30px",
-              color: "black",
-              letterSpacing: -2,
-            }}>
-            <Link href={`/`}>
-              <a className="hover:underline"> K Aragon</a>
-            </Link>
-          </p>
-          <div data-testid="header-menu" style={{ flex: "1 1 0%", display: "flex", gap: "2em" }}>
+      <div className='w-full t-0 l-0 flex flex-row items-center justify-between z-[100]'
+     >
+          <div className="w-1/4 z-[100]">
+            <p>
+              <Link href={`/`}>
+                <a className="hover:underline"> K. Aragon</a>
+              </Link>
+            </p>
+          </div>
+          <div className="text-right w-3/4 z-[100]" data-testid="header-menu" >
             <Link href={`/work`}>
-              <a className="text-red"
+              <a className='mr-5 md:mr-20'
                 style={router.pathname === '/work' ? { textUnderlineOffset: "5px",
                 textDecoration: "underline" 
               } 
             : {}}>WORK</a>
             </Link>
             <Link href={`/posts`}>
-              <a className="" style={router.pathname === '/posts' 
+              <a className='mr-5 md:mr-20' style={router.pathname === '/posts' 
                 ? { textUnderlineOffset: "5px",
                     textDecoration: "underline" 
                   } 
                 : {}}>WRITING</a>
             </Link>
             <Link href={`/cv`}>
-              <a className="" style={
+              <a className='mr-5 md:mr-20' style={
                 router.pathname === '/cv' 
                 ? { textUnderlineOffset: "5px",
                 textDecoration: "underline" 
               } 
             : {} }>CV</a>
             </Link>
+            <button onClick={() => handleTheme(!isDarkTheme)}>
+              <span className=''>{ isDarkTheme ? `☼` : `☽` }</span>
+            </button>
           </div>
-          <p>&#9999;</p>
-        </div>
+          {/* <div className='w-1/4 text-right rounded-lg hover:text-blue-400 z-[100]'>
+            <button onClick={() => handleTheme(!isDarkTheme)}>
+              <span className=''>{ isDarkTheme ? `☼` : `☽` }</span>
+            </button>
+          </div> */}
       </div>
-      <div style={{ height: 60 }} />
-
     </>
   )
 }
