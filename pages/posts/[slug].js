@@ -21,7 +21,7 @@ function PostContent({ post }) {
           Karen Aragon | {title}
         </title>
       </Head>
-      <div className="max-w-2xl mx-auto pr-10">
+      <div className="post-content max-w-2xl mx-auto pr-10">
         <h2>{title}</h2>
         <br/>
         {img && img.data[0] && img.data[0].attributes &&
@@ -41,7 +41,6 @@ export default function Post({ post, morePosts, preview, error }) {
 
   return (
     <Layout preview={preview}>
-        <Header />
         {router.isFallback
         ? <div>Loading</div>
         : (
@@ -89,7 +88,7 @@ export async function getStaticProps({ params, preview = null }) {
 
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug()
-  console.log('allPosts', await allPosts)
+  
   return {
     paths: allPosts?.map((post) => {
       return `/posts/${post.attributes.slug}`

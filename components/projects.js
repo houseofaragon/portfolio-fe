@@ -29,7 +29,10 @@ function Project({project, index}) {
         <p className='pb-3 text-l'> {content} </p>
         <p className='pb-3 text-xs'> Tools: <span className="tools">{meta}</span></p>
         <a className='text-xs' href={`${link}`} target="_blank" aria-label={link}> Live </a>
-        <a className='text-xs' href={`${github}`} target="_blank" aria-label={github}> Code </a>
+        {github &&
+          <a className='text-xs' href={`${github}`} target="_blank" aria-label={github}> Code </a>
+        }
+
       </div>
     )
 }

@@ -19,20 +19,20 @@ export default function Index({ allPosts, preview }) {
             <br/>
             <br/>
             <div className='description'>
-              <p> I would describe myself as a creature of habit. I write in a journal everyday. I name my "TODO" list as <em>Eat the Frog</em> because that's the productivity style I align best with.
+              <p>I'm a creature of habit who keeps up with a daily work journal. I name my "TODO" list as <em>Eat the Frog</em> because that's the productivity style I align best with.
               </p>
               <br/>
-              <p> When I'm learning something new I take notes. Lots and Lots of notes. Often I handwrite  snippets of code before I even type it out. This is so I build the muscle memory and hopefully have it stick.
+              <p> I keep extensive documentation. I often write out snippets of code before I type it out because writing helps me synthesize the information better. 
               </p>
               <br/>
-              <p>Presented here are some of those notes edited in a much more cohesive manner. Some of it is stuff I just learned recently for example Vue and Nuxt. Some of it is stuff I think about a lot in between coding. Maybe it'll help someone?</p>
+              <p>Presented here are some of those thoughts edited in a much more cohesive manner.</p>
             </div>
           </div>
           <div className="basis-2/3">
           <ul className="timeline-list">
-            {allPosts.map((post) => {
+            {allPosts.map((post, index) => {
               return (
-                <li>
+                <li key={index}>
                   <div className="content">
                     <PostPreview
                       key={post.attributes.slug}
@@ -54,9 +54,11 @@ export default function Index({ allPosts, preview }) {
   )
 }
 
-export async function getStaticProps({ preview = null }) {
-  const allPosts = (await getAllPostsForHome(preview)) || []
+export async function getStaticProps() {
+  const allPosts = await getAllPostsForHome()
   return {
-    props: { allPosts, preview },
+    props: { 
+      allPosts
+    },
   }
 }

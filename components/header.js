@@ -17,21 +17,21 @@ export default function Header({ isDarkTheme, handleTheme }) {
           </div>
           <div className="text-right w-3/4 z-[100]" data-testid="header-menu" >
             <Link href={`/work`}>
-              <a className='mr-5 md:mr-20'
+              <a className='mr-5 md:mr-10'
                 style={router.pathname === '/work' ? { textUnderlineOffset: "5px",
                 textDecoration: "underline" 
               } 
             : {}}>WORK</a>
             </Link>
             <Link href={`/posts`}>
-              <a className='mr-5 md:mr-20' style={router.pathname === '/posts' 
+              <a className='mr-5 md:mr-10' style={router.pathname === '/posts' 
                 ? { textUnderlineOffset: "5px",
                     textDecoration: "underline" 
                   } 
                 : {}}>WRITING</a>
             </Link>
             <Link href={`/cv`}>
-              <a className='mr-5 md:mr-20' style={
+              <a className='mr-5 md:mr-10' style={
                 router.pathname === '/cv' 
                 ? { textUnderlineOffset: "5px",
                 textDecoration: "underline" 

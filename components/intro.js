@@ -28,43 +28,26 @@ export default function Intro() {
   const [wave, setWave] = useState(15)
 
   return (
-    <div className='absolute t-0 l-0 w-full h-full p-40'
+    <div className='t-0 l-0 w-full h-full p-0 m-0'
       style={{
-        position: "absolute",
         top: 0,
         left: 0,
-        width: "100%",
-        height: "100%",
-        padding: 40,
-        display: "inline-flex",
+        height: "90vh",
+        display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        justifyContent: "flex-start",
+        justifyContent: "space-between",
       }}>
-      <div className='mt-20' style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "left" }}>
+      <div className='mt-5 md:mt-0' style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "left" }}>
         <div className="text-left max-w-[400px]">
           <p className="bold">Hello, I'm Karen.</p>
           <b>—</b>
           <p>I'm an artist and software engineer.</p>
           <br />
         </div>
-        <div style={{ width: 10 }} />
-      </div>
-      <div style={{ height: 10 }} />
-      <div
-        className="full"
-        style={{
-          width: "100%",
-          flex: "1 1 0%",
-          padding: 0,
-          display: "inline-flex",
-          flexDirection: "row",
-          alignItems: "flex-end",
-          justifyContent: "center",
-        }}>
       </div>
       <div
-      className="w-full z-10 text-[13px] flex flex-row justify-between items-end"
+      className="absolute bottom-10 md:bottom-10 z-10 text-[13px] flex flex-row justify-between items-end"
         style={{
           pointerEvents: "all",
           pointer: "auto",
@@ -82,10 +65,10 @@ export default function Intro() {
             }}/>
 
           </div>
-          <p className="text-center hidden sm:block">
+          <p className="text-center hidden md:block">
             Hi!
           </p>
-          <div className="flex flex-col justify-right text-right white-space-nowrap">
+          <div className="hidden md:block mr-[10vw] md:mr-[10vw] lg:mr-[7vw] flex flex-col justify-right text-right white-space-nowrap">
             <p>I'm in NY and you are here:</p>
             <p className="mt-[-3px]">
               {`{ x: ${mousePosition.x}, y: ${mousePosition.y} }`}

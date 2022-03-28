@@ -36,8 +36,8 @@ export default function Layout({ preview, children }) {
           <Header isDarkTheme={isDarkTheme} handleTheme={(value) => { 
             setDarkTheme(value)
           }} />
-          <div className="mt-5 md:mt-10 lg:mt-20 w-full p-0">
-            <div>
+          <div className="mt-5 md:mt-10 lg:mt-10 w-full p-0">
+            <div className="hidden md:block">
               <p className="text-[13px] text-right whitespace-nowrap origin-right"
                 style={{
                   transform: "rotate3d(0, 0, 1, 90deg) translate3d(400px,0,0)"

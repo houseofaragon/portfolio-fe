@@ -1,5 +1,3 @@
-//const fetch = require('isomorphic-unfetch');
-
 module.exports = {
   exportPathMap: async function() {
     const paths = {
@@ -14,7 +12,7 @@ module.exports = {
     const slugs = data.map(entry => entry.attributes.slug);
 
     slugs.forEach(slug => {
-      paths[`/posts/${slug}`] = { page: '/posts/[slug]'};
+      paths[`/posts/${slug}`] = { page: `/posts/${slug}`};
     });
 
     return paths;

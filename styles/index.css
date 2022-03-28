@@ -65,6 +65,7 @@ p, label {
   font-family: 'Akkurat-Light', Arial, Helvetica, sans-serif;
   font-weight: 100;
   line-height: 24px;
+  color: #666;
 }
 
 a {
@@ -80,6 +81,10 @@ a {
 }
 
 .description p {
+  font-family: 'Akkurat-Light', Arial, Helvetica, sans-serif;
+}
+
+.description p strong {
   font-family: 'Akkurat', Arial, Helvetica, sans-serif;
 }
 
@@ -96,7 +101,7 @@ code {
 
 .timeline-list:before {
   content: "";
-  border-left: 1px solid #000000;
+  border-left: 1px solid #141414;
   left: -0.25em;
   height: 100%;
   position: absolute;
@@ -111,10 +116,10 @@ code {
   clear:both;
   position: absolute;
   bottom: -34px;
-  left: -0.6em;
-  width: 12px;
-  height: 12px;
-  border-radius: 20%;
+  left: -0.54em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
   background: none repeat scroll 0% 0% rgb(0, 0, 0);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   animation:revealScaleUp 0.75s 2.82s ease both 1;
@@ -130,12 +135,12 @@ code {
 	content: "";
 	position: absolute;
 	top: 1.5em;
-	left: -0.6em;
-	width: 12px;
-	height: 12px;
-	border-radius: 20%;
+	left: -0.54em;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
 	background: none repeat scroll 0% 0% #ffffff;
-	border: 1px solid #000000;
+	border: 1px solid #7d7c7c;
   animation:revealScaleUp 0.75s 0s ease both 1;
 }
 .timeline-list { 
@@ -314,4 +319,41 @@ input[type=range]::-ms-track {
   /* background: green;  
   border-color: green;
   color: green;  */
+}
+
+.post-content h2 {
+  font-size: 1.3rem;
+  padding: 1rem 0;
+  font-family: 'Akkurat-Mono';
+}
+
+.post-content ul {
+  padding: 1rem 0;
+  margin-left: 10px;
+}
+.post-content ul li {
+  list-style-type: circle;
+  fill:#141414;
+}
+
+.post-content ul li, .post-content ul li p {
+  font-family: 'Akkurat-Light';
+  font-size: 1rem;
+}
+
+.post-content p {
+  padding: 0.5rem 0;
+  font-family: 'Akkurat-Regular-Pro';
+}
+
+.post-content h3 {
+  padding: 2rem 0 1rem 0;
+}
+
+.post-content pre {
+  padding: 1rem 0;
+}
+
+.light {
+  font-family: 'Akkurat-Light';
 }
