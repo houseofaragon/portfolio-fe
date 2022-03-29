@@ -7,7 +7,7 @@ export default function PostPreview({
 }) {
   return (
       <Link href={`/posts/${slug}`}>
-        <div className="cursor-pointer pr-10 pt-5" >
+        <div className="cursor-pointer -mb-10 md:-mb-5 md:pr-10 pt-5" >
           <h3 className="mb-3 hover:underline">
               {title}
           </h3>

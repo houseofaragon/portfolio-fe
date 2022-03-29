@@ -78,6 +78,10 @@ a {
   text-transform: "uppercase"
 }
 
+.logo img:hover {
+  fill: red;
+}
+
 .description p, .description a {
   font-family: 'Akkurat-Light', Arial, Helvetica, sans-serif;
 }
@@ -104,11 +108,11 @@ code {
 
 .timeline-list:before {
   content: "";
-  border-left: 1px solid #bdb2b2;
+  border-left: 0.1px solid #a29f9f;
   left: -0.25em;
   height: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   top: 2.1em;
   transform-origin:0 0;
   animation: scaleVertical 3s 1s ease both 1;
@@ -118,10 +122,10 @@ code {
   content: "";
   clear:both;
   position: absolute;
-  bottom: -34px;
-  left: -0.54em;
-  width: 10px;
-  height: 10px;
+  bottom: -40px;
+	left: -0.46em;
+	width: 7px;
+	height: 7px;
   border-radius: 50%;
   background: none repeat scroll 0% 0% rgb(74, 64, 64);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -138,12 +142,12 @@ code {
 	content: "";
 	position: absolute;
 	top: 1.5em;
-	left: -0.54em;
-	width: 10px;
-	height: 10px;
+	left: -0.46em;
+	width: 7px;
+	height: 7px;
 	border-radius: 50%;
-	background: none repeat scroll 0% 0% #ffffff;
-	border: 1px solid #7d7c7c;
+  border: 4px solid transparent;
+	background: none repeat scroll 0% 0% rgb(192, 132, 252);
   animation:revealScaleUp 0.75s 0s ease both 1;
 }
 .timeline-list { 
@@ -258,7 +262,6 @@ code {
 }
 
 .project a {
-  background-color: rgb(237, 236, 236);
   padding: 0.5em 1.5em;
   margin-right: 1em;
   font-family: 'Akkurat-Regular-Pro', sans-serif;

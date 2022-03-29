@@ -31,20 +31,23 @@ export default function Layout({ preview, children }) {
   return (
     <>
       <Meta />
-      <div className="min-h-screen bg-[#f7f7f7] dark:bg-[#141414] text-[#141414] dark:text-white p-7 md:p-10 lg:p-14">
+      <div className="w-full-screen min-h-screen bg-[#f7f7f7] dark:bg-[#141414] text-[#141414] dark:text-white">
         <main>
           <Header isDarkTheme={isDarkTheme} handleTheme={(value) => { 
             setDarkTheme(value)
           }} />
-          <div className="mt-5 md:mt-10 lg:mt-10 w-full p-0">
-            <div className="hidden md:block">
-              <p className="text-[13px] text-right whitespace-nowrap origin-right"
-                style={{
-                  transform: "rotate3d(0, 0, 1, 90deg) translate3d(400px,0,0)"
+            <div className="absolute  md:block right-[5vw] md:right-[5vw] lg:right-[5vw]" 
+            style={{
+                  transform: "rotate(90deg) translate3d(50%, 0, 0)",
+                  transformOrigin: "100% 50%",
+                  bottom: "50%",
                 }}>
+              <p className="text-[13px] whitespace-nowrap"
+                >
                 ☺ &nbsp;&nbsp;&nbsp;&nbsp; I'm happy you're here &nbsp;&nbsp;&nbsp;&nbsp; ☺
               </p>
             </div>
+          <div className='px-5 md:px-10 lg:px-20 lg:-mt-10'>
             {children}
           </div>
         </main>

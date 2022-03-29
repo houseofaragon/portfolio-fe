@@ -36,6 +36,7 @@ export default function Meta() {
         name="description"
         content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
       />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
     </Head>
   )

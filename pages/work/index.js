@@ -1,4 +1,3 @@
-import Container from '@/components/container'
 import Layout from '@/components/layout'
 import { getAllProjects } from '@/lib/api'
 import Head from 'next/head'
@@ -11,11 +10,10 @@ export default function Work({projects}) {
         <Head>
           <title>Karen Aragon</title>
         </Head>
-        <Container>
           <div className="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
             <div className="basis-1/3 mr-10">
-              <h2 className="text-m md:text-xl lg:text-3xl"><b>—</b> Work </h2>
-              <br/>
+              <h2 className="hidden text-3xl md:text-l md:block"><b>—</b> Work </h2>
+              <br />
               <div className='description dark:text-slate-300'>
                 <p> I've worked on many projects ranging from microservices to design systems to scaling initiatives.  At work I write in Node, React, Typescript and PHP.
                 </p>
@@ -31,7 +29,6 @@ export default function Work({projects}) {
               <Projects projects={projects}/>
             </div>
         </div>
-        </Container>
       </Layout>
     </>
   )

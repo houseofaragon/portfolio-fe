@@ -1,4 +1,3 @@
-import Container from '@/components/container'
 import Layout from '@/components/layout'
 import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
@@ -11,12 +10,9 @@ export default function Index({ allPosts, preview }) {
         <Head>
           <title>Karen Aragon</title>
         </Head>
-        <Container>
         <div className="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
           <div className="basis-1/3 mr-20">
-            <h2 className="text-3xl md:text-l"><b>—</b> Writing </h2>
-            
-            <br/>
+            <h2 className="hidden text-3xl md:text-l md:block"><b>—</b> Writing </h2>
             <br/>
             <div className='description dark:text-slate-300'>
               <p>I'm a creature of habit who keeps up with a daily work journal. I keep extensive documentation and I often write out snippets of code before I type it out because writing helps me synthesize the information better. 
@@ -45,7 +41,6 @@ export default function Index({ allPosts, preview }) {
             </ul>
           </div>
         </div>
-        </Container>
       </Layout>
     </>
   )
