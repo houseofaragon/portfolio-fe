@@ -65,7 +65,6 @@ p, label {
   font-family: 'Akkurat-Light', Arial, Helvetica, sans-serif;
   font-weight: 100;
   line-height: 24px;
-  color: #666;
 }
 
 a {
@@ -76,16 +75,20 @@ a {
   line-height: 16px; 
   text-align: center;
   letter-spacing: 0.1em;
-  color: "black"; 
   text-transform: "uppercase"
 }
 
-.description p {
+.description p, .description a {
   font-family: 'Akkurat-Light', Arial, Helvetica, sans-serif;
 }
 
 .description p strong {
   font-family: 'Akkurat', Arial, Helvetica, sans-serif;
+}
+
+.description a {
+  font-size: 0.9em;
+  text-decoration: underline;
 }
 
 code {
@@ -101,7 +104,7 @@ code {
 
 .timeline-list:before {
   content: "";
-  border-left: 1px solid #141414;
+  border-left: 1px solid #bdb2b2;
   left: -0.25em;
   height: 100%;
   position: absolute;
@@ -120,7 +123,7 @@ code {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: none repeat scroll 0% 0% rgb(0, 0, 0);
+  background: none repeat scroll 0% 0% rgb(74, 64, 64);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   animation:revealScaleUp 0.75s 2.82s ease both 1;
 }
@@ -144,7 +147,7 @@ code {
   animation:revealScaleUp 0.75s 0s ease both 1;
 }
 .timeline-list { 
-   animation:reveal 2s 0 ease both 1;
+   animation:reveal 1s 0 ease both 1;
 }
 .timeline-list li .content {
   animation:revealFromLeft 0.5s 0s ease both 1;
@@ -250,10 +253,6 @@ code {
   }
 }
 
-.project {
-  background-color: rgb(247, 246, 246);
-}
-
 .project .tools {
   font-family: 'Akkurat', sans-serif;
 }
@@ -270,8 +269,6 @@ code {
 }
   
 .project a:hover {
-  background-color: #b6b5b5;
-  color: white;
   cursor: pointer;
 }
 
@@ -314,17 +311,12 @@ input[type=range]:focus {
 input[type=range]::-ms-track {
   width: 100%;
   cursor: pointer;
-
-  /* Hides the slider so custom styles can be added */
-  /* background: green;  
-  border-color: green;
-  color: green;  */
 }
 
 .post-content h2 {
   font-size: 1.3rem;
   padding: 1rem 0;
-  font-family: 'Akkurat-Mono';
+  font-family: 'Akkurat';
 }
 
 .post-content ul {
@@ -334,20 +326,35 @@ input[type=range]::-ms-track {
 .post-content ul li {
   list-style-type: circle;
   fill:#141414;
+  padding-bottom: 10px;
 }
 
 .post-content ul li, .post-content ul li p {
-  font-family: 'Akkurat-Light';
+  font-family: 'Akkurat';
   font-size: 1rem;
 }
 
 .post-content p {
   padding: 0.5rem 0;
-  font-family: 'Akkurat-Regular-Pro';
+  font-size: 1.05em;
+  line-height: 2em;
 }
 
-.post-content h3 {
-  padding: 2rem 0 1rem 0;
+.post-content blockquote p {
+  margin-left: 20px;
+  font-style: italic;
+  padding: 20px 0;
+  line-height: 1.5em;
+}
+
+.post-content a {
+  font-size: 1em;
+  letter-spacing: 0;
+  text-decoration: underline;
+}
+
+.post-content h2 {
+  padding: 2.5rem 0 1rem 0;
 }
 
 .post-content pre {

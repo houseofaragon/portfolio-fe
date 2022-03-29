@@ -85,7 +85,12 @@ function Blob({ hue, wave}) {
 
 export default function PerlinBlob({ hue, wave}) {
   return (
-    <div className="absolute w-full h-full l-0 t-0 p-0 m-0">
+    <div className="absolute w-full h-full p-0 m-0"
+    style={{
+      left: "-20px",
+      top: "-10px"
+    }}
+    >
       <Canvas
         camera={{ fov: 55, aspect: 2, zoom: 0.27, near: 1, far: 1000 }}
       >

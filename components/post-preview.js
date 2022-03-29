@@ -7,11 +7,11 @@ export default function PostPreview({
 }) {
   return (
       <Link href={`/posts/${slug}`}>
-        <div className="cursor-pointer pr-10 pt-5 transition ease-in-out delay-150 hover:bg-slate-50 duration-300" >
-          <h3 className="mb-3">
+        <div className="cursor-pointer pr-10 pt-5" >
+          <h3 className="mb-3 hover:underline">
               {title}
           </h3>
-          <p className="text-sm leading-relaxed mb-4">{excerpt}</p>
+          <p className="leading-relaxed mb-4 text-slate-600 dark:text-slate-300">{excerpt}</p>
         </div>
       </Link>
 

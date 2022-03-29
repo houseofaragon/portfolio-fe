@@ -30,13 +30,13 @@ export default function Header({ isDarkTheme, handleTheme }) {
                   } 
                 : {}}>WRITING</a>
             </Link>
-            <Link href={`/cv`}>
+            <Link href={`/about`}>
               <a className='mr-5 md:mr-10' style={
                 router.pathname === '/cv' 
                 ? { textUnderlineOffset: "5px",
                 textDecoration: "underline" 
               } 
-            : {} }>CV</a>
+            : {} }>ABOUT</a>
             </Link>
             <button onClick={() => handleTheme(!isDarkTheme)}>
               <span className=''>{ isDarkTheme ? `☼` : `☽` }</span>

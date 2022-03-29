@@ -18,11 +18,8 @@ export default function Index({ allPosts, preview }) {
             
             <br/>
             <br/>
-            <div className='description'>
-              <p>I'm a creature of habit who keeps up with a daily work journal. I name my "TODO" list as <em>Eat the Frog</em> because that's the productivity style I align best with.
-              </p>
-              <br/>
-              <p> I keep extensive documentation. I often write out snippets of code before I type it out because writing helps me synthesize the information better. 
+            <div className='description dark:text-slate-300'>
+              <p>I'm a creature of habit who keeps up with a daily work journal. I keep extensive documentation and I often write out snippets of code before I type it out because writing helps me synthesize the information better. 
               </p>
               <br/>
               <p>Presented here are some of those thoughts edited in a much more cohesive manner.</p>

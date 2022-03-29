@@ -16,13 +16,15 @@ export default function Work({projects}) {
             <div className="basis-1/3 mr-10">
               <h2 className="text-m md:text-xl lg:text-3xl"><b>—</b> Work </h2>
               <br/>
-              <div className='description'>
+              <div className='description dark:text-slate-300'>
                 <p> I've worked on many projects ranging from microservices to design systems to scaling initiatives.  At work I write in Node, React, Typescript and PHP.
                 </p>
                 <br />
                 <p>
                 I experiment with a wider range of technologies in my own personal projects which include: ThreeJS, D3, Vue, Nuxt, Next, Python.
                 </p>
+                <br />
+                <p>All my projects are open sourced on <a href="https://github.com/houseofaragon" target="blank" >github</a>.</p>
               </div>
             </div>
             <div className="basis-2/3">

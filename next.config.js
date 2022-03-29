@@ -4,7 +4,7 @@ module.exports = {
       '/': { page: '/' },
       '/work': { page: '/work' },
       '/posts': { page: '/posts' },
-      '/cv': { page: '/cv' }
+      '/about': { page: '/about' }
 
     };
     const res = await fetch('http://localhost:1337/api/posts');

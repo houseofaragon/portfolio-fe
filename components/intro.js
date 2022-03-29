@@ -28,7 +28,9 @@ export default function Intro() {
   const [wave, setWave] = useState(15)
 
   return (
-    <div className='t-0 l-0 w-full h-full p-0 m-0'
+    <>
+      <Blob hue={hue} wave={wave}/>
+      <div className='t-0 l-0 w-full h-full p-0 m-0'
       style={{
         top: 0,
         left: 0,
@@ -38,44 +40,45 @@ export default function Intro() {
         alignItems: "flex-start",
         justifyContent: "space-between",
       }}>
-      <div className='mt-5 md:mt-0' style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "left" }}>
-        <div className="text-left max-w-[400px]">
-          <p className="bold">Hello, I'm Karen.</p>
-          <b>—</b>
-          <p>I'm an artist and software engineer.</p>
-          <br />
+        <div className='mt-5 md:mt-0' style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "left" }}>
+          <div className="text-left max-w-[400px]">
+            <p className="bold">Hello, I'm Karen.</p>
+            <b>—</b>
+            <p>I'm an artist and software engineer.</p>
+            <br />
+          </div>
+        </div>
+        <div
+        className="absolute bottom-10 md:bottom-10 z-10 text-[13px] flex flex-row justify-between items-end"
+          style={{
+            pointerEvents: "all",
+            pointer: "auto",
+            width: "100%",
+            padding: 0,
+          }}>
+            <div>
+              <SliderInput label={'Color'} onChange={(e) => {
+                console.log(e.target.value)
+                setHue(e.target.value)
+              }} />
+              <SliderInput label={'Waves'} max="100" onChange={(e) => {
+                console.log(e.target.value)
+                setWave(e.target.value)
+              }}/>
+
+            </div>
+            <p className="text-center hidden md:block">
+              Hi!
+            </p>
+            <div className="hidden md:block mr-[10vw] md:mr-[10vw] lg:mr-[7vw] flex flex-col justify-right text-right white-space-nowrap">
+              <p>I'm in NY and you are here:</p>
+              <p className="mt-[-3px]">
+                {`{ x: ${mousePosition.x}, y: ${mousePosition.y} }`}
+              </p>
+            </div>
         </div>
       </div>
-      <div
-      className="absolute bottom-10 md:bottom-10 z-10 text-[13px] flex flex-row justify-between items-end"
-        style={{
-          pointerEvents: "all",
-          pointer: "auto",
-          width: "100%",
-          padding: 0,
-        }}>
-          <div>
-            <SliderInput label={'Color'} onChange={(e) => {
-              console.log(e.target.value)
-              setHue(e.target.value)
-            }} />
-            <SliderInput label={'Waves'} max="100" onChange={(e) => {
-              console.log(e.target.value)
-              setWave(e.target.value)
-            }}/>
+    </>
 
-          </div>
-          <p className="text-center hidden md:block">
-            Hi!
-          </p>
-          <div className="hidden md:block mr-[10vw] md:mr-[10vw] lg:mr-[7vw] flex flex-col justify-right text-right white-space-nowrap">
-            <p>I'm in NY and you are here:</p>
-            <p className="mt-[-3px]">
-              {`{ x: ${mousePosition.x}, y: ${mousePosition.y} }`}
-            </p>
-          </div>
-      </div>
-      <Blob hue={hue} wave={wave}/>
-    </div>
   )
 }
