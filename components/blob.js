@@ -1,4 +1,4 @@
-import { Suspense, useRef } from "react"
+import { Suspense, useEffect, useRef, useState } from "react"
 import { vertexShader, fragmentShader } from "@/lib/blobShader"
 import { Canvas, extend, useFrame } from '@react-three/fiber'
 import { shaderMaterial } from "@react-three/drei"
@@ -84,9 +84,16 @@ function Blob({ hue, wave}) {
 }
 
 export default function PerlinBlob({ hue, wave}) {
+  const [devicePixelRatio, setDevicePixelRatio] = useState(2)
+
+  useEffect(() => {
+    setDevicePixelRatio(window.devicePixelRatio)
+  })
+
   return (
       <Canvas
-        camera={{ fov: 55, aspect: 2, zoom: 0.3, near: 1, far: 1000 }}
+        pixelRatio={[1, 2]}
+        camera={{position: [0, 0, 10], fov: 45}}
       >
         <OrbitControls />
         <Suspense fallback={null}>
@@ -95,3 +102,4 @@ export default function PerlinBlob({ hue, wave}) {
       </Canvas>
   )
 }
+

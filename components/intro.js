@@ -75,7 +75,7 @@ export default function Intro() {
             </p>
           </div>
       </div>
-      <div className="absolute w-full h-full p-0 m-0 md:left-[-20px]"
+      <div className="fixed w-full h-full p-0 m-0 md:left-[-20px]"
         style={{
           top: "-10px"
         }}
