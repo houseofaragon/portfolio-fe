@@ -1,6 +1,6 @@
 export function Projects({ projects }) {
   return (
-    <div className=''>
+    <div className='pb-10'>
       <ul className="timeline-list">
         {projects.map((project, index) => {
           return (

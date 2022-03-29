@@ -10,7 +10,7 @@ export default function Header({ isDarkTheme, handleTheme }) {
      >
           <div className="w-1/4 z-[100] logo">
               <Link href={`/`}>
-              <svg class="cursor-pointer
+              <svg className="cursor-pointer
               h-[30px] w-[30px] -ml-[5px] text-purple-400
               fill-current
               hover:text-purple-700 dark:text-purple-500  dark:fill-current

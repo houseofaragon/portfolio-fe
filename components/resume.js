@@ -20,7 +20,7 @@ export function Resume() {
           <p className="light">I am skilled with all listed above. But, I will be the first to admit I am not an expert in any - because there's always something new to learn.</p>
         </div>
       </div>
-      <div className="basis-2/3 l-contained">
+      <div className="basis-2/3 l-contained pb-10">
         <ul className="timeline-list">
           <li>
             <div className="content md:pr-10 pt-5">

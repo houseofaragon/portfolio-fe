@@ -31,7 +31,7 @@ export default function Layout({ preview, children }) {
   return (
     <>
       <Meta />
-      <div className="w-full-screen min-h-screen bg-[#f7f7f7] dark:bg-[#141414] text-[#141414] dark:text-white">
+      <div className="w-full-screen h-full-screen bg-[#f7f7f7] dark:bg-[#141414] text-[#141414] dark:text-white">
         <main>
           <Header isDarkTheme={isDarkTheme} handleTheme={(value) => { 
             setDarkTheme(value)

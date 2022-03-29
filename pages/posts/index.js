@@ -21,7 +21,7 @@ export default function Index({ allPosts, preview }) {
               <p>Presented here are some of those thoughts edited in a much more cohesive manner.</p>
             </div>
           </div>
-          <div className="basis-2/3">
+          <div className="basis-2/3 pb-10">
           <ul className="timeline-list">
             {allPosts.map((post, index) => {
               return (
