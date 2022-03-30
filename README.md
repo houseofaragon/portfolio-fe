@@ -11,7 +11,7 @@ Site features personal work, writing, and experience. Site was built with
 ### install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
+### serve with hot reload at localhost:3000
 $ yarn dev
 
 ### build for production and launch server
