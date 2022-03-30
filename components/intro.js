@@ -28,7 +28,7 @@ export default function Intro() {
   const [wave, setWave] = useState(15)
 
   return (
-    <div className='t-0 l-0 w-full h-full'
+    <div className='t-0 l-0 w-full h-full overflow-hidden'
       style={{
         top: 0,
         left: 0,
@@ -54,7 +54,7 @@ export default function Intro() {
           width: "100%",
           padding: 0,
         }}>
-          <div>
+          <div className="hidden md:block">
             <SliderInput label={'Color'} onChange={(e) => {
               console.log(e.target.value)
               setHue(e.target.value)
@@ -75,11 +75,7 @@ export default function Intro() {
             </p>
           </div>
       </div>
-      <div className="fixed w-full h-full p-0 m-0 md:left-[-20px]"
-        style={{
-          top: "-10px"
-        }}
-      >
+      <div className="fixed w-full h-full -p-5 -m-5 md:left-[-20px] md:top-[-10px]">
       <Blob hue={hue} wave={wave}/>
       </div>
     </div>

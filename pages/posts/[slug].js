@@ -24,13 +24,13 @@ function PostContent({ post }) {
       <div className="post-content max-w-2xl mx-auto pr-10">
         <h2>{title}</h2>
         <br/>
-        {img && img.data[0] && img.data[0].attributes &&
+        {/* {img && img.data[0] && img.data[0].attributes &&
         <img
           width={2000}
           height={1000}
           src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${img.data[0]?.attributes?.url}`}
           alt={`Image for ${slug}`}                
-        />}
+        />} */}
         <PostBody content={content} />
       </div>
     </>

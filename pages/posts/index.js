@@ -11,7 +11,7 @@ export default function Index({ allPosts, preview }) {
           <title>Karen Aragon</title>
         </Head>
         <div className="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
-          <div className="basis-1/3 mr-20">
+          <div className="basis-1/3 mr-5 md:mr-20">
             <h2 className="hidden text-3xl md:text-l md:block"><b>—</b> Writing </h2>
             <br/>
             <div className='description dark:text-slate-300'>

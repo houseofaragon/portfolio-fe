@@ -11,7 +11,7 @@ const OPTIONS = {
   perlin: {
     vel: 0.002,
     speed: 0.00015,
-    perlins: 1.2,
+    perlins: 2,
     decay: 0.1,
     complex: 0.3,
     fragment: true,
@@ -48,7 +48,7 @@ const BlobShaderMaterial = shaderMaterial(
     eqcolor: {
       type: "f",
       value: 0.0
-    }
+    },
   },
   glsl(vertexShader),
   glsl(fragmentShader)
@@ -84,16 +84,10 @@ function Blob({ hue, wave}) {
 }
 
 export default function PerlinBlob({ hue, wave}) {
-  const [devicePixelRatio, setDevicePixelRatio] = useState(2)
-
-  useEffect(() => {
-    setDevicePixelRatio(window.devicePixelRatio)
-  })
-
   return (
       <Canvas
-        pixelRatio={[1, 2]}
-        camera={{position: [0, 0, 10], fov: 45}}
+        dpr={[1, 2]}
+        camera={{position: [0, 0, 10], fov: 55}}
       >
         <OrbitControls />
         <Suspense fallback={null}>
