@@ -205,12 +205,13 @@ canvas{width:100%;height:100%;padding:0;margin:0;overflow: hidden;}
 .timeline-list li:nth-child(8) .content {
   animation-delay:2.3s;
 }
-.timeline-list li:nth-child(9):before {
+.timeline-list li:nth-child(n+8):before {
   animation-delay:2s;
 }
-.timeline-list li:nth-child(9) .content {
+.timeline-list li:nth-child(n+8) .content {
   animation-delay:2.3s;
 }
+
 
 @keyframes revealFromLeft {
   0% {
