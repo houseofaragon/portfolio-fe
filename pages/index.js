@@ -4,12 +4,6 @@ import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
 
 export default function Index({ allPosts, preview }) {
-  const heroPost = allPosts[0]
-  const {
-    title, excerpt, slug
-  } = heroPost.attributes
-  const morePosts = allPosts.slice(1)
-  
   return (
     <>
       <Layout preview={preview}>
@@ -20,11 +14,4 @@ export default function Index({ allPosts, preview }) {
       </Layout>
     </>
   )
-}
-
-export async function getStaticProps({ preview = null }) {
-  const allPosts = (await getAllPostsForHome(preview)) || []
-  return {
-    props: { allPosts, preview },
-  }
 }

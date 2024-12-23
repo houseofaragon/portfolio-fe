@@ -1,9 +1,10 @@
 import Link from 'next/link'
 
 export default function PostPreview({
-  title,
-  excerpt,
   slug,
+  title,
+  date,
+  excerpt,
 }) {
   return (
       <Link href={`/posts/${slug}`}>
@@ -11,6 +12,7 @@ export default function PostPreview({
           <h3 className="mb-3 hover:underline">
               {title}
           </h3>
+          <p>{date}</p>
           <p className="leading-relaxed mb-4 text-slate-600 dark:text-slate-300">{excerpt}</p>
         </div>
       </Link>

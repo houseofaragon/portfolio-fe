@@ -1,9 +1,12 @@
 import Layout from '@/components/layout'
-import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
 import PostPreview from '@/components/post-preview'
+import path from 'path'
+import fs from 'fs'
+import matter from 'gray-matter'
 
-export default function Index({ allPosts, preview }) {
+export default function Index({ posts, preview }) {
+  console.log('posss', posts)
   return (
     <>
       <Layout preview={preview}>
@@ -23,16 +26,17 @@ export default function Index({ allPosts, preview }) {
           </div>
           <div className="basis-2/3 pb-10">
           <ul className="timeline-list">
-            {allPosts.map((post, index) => {
+            {posts.map((post, index) => {
+              console.log(post)
               return (
                 <li key={index}>
                   <div className="content">
                     <PostPreview
-                      key={post.attributes.slug}
-                      title={post.attributes.title}
-                      coverImage="{post.attributes.cover}"
-                      slug={post.attributes.slug}
-                      excerpt={post.attributes.excerpt}
+                      slug={post.slug}
+                      key={post.slug}
+                      title={post.title}
+                      date={post.date}
+                      excerpt={post.excerpt}
                     />
                   </div>
                 </li>
@@ -47,10 +51,26 @@ export default function Index({ allPosts, preview }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = await getAllPostsForHome()
+  const blogDir = path.join(process.cwd(), 'blog')
+  const filenames = fs.readdirSync(blogDir)
+
+  const posts = filenames.map((filename) => {
+    const fullPath = path.join(blogDir, filename)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data } = matter(fileContents)
+    
+    return {
+        slug: filename.replace('.md', ''),
+        title: data.title,
+        excerpt: data.excerpt,
+        date: data.date,
+    }
+  })
+
+  console.log(posts)
   return {
-    props: { 
-      allPosts
+    props: {
+      posts,
     },
-  }
+  };
 }

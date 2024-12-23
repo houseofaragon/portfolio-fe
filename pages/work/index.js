@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { Projects } from '@/components/projects'
 
 export default function Work({projects}) {
+  console.log(projects)
   return (
     <>
       <Layout>
@@ -35,7 +36,55 @@ export default function Work({projects}) {
 }
 
 export async function getStaticProps() {
-  const projects = await getAllProjects() || []
+  const projects =  {
+      data: [
+        {
+          attributes: {
+            title: "Project 1",
+            content: "This is a project",
+            meta: "Meta",
+            github: "https://github.com",
+            link: "https://google.com"
+          }
+        },
+        {
+          attributes: {
+            title: "Project 2",
+            content: "This is a project",
+            meta: "Meta",
+            github: "https://github.com",
+            link: "https://google.com"
+          }
+        },
+        {
+          attributes: {
+            title: "Project 3",
+            content: "This is a project",
+            meta: "Meta",
+            github: "https://github.com",
+            link: "https://google.com"
+          }
+        },
+        {
+          attributes: {
+            title: "Project 4",
+            content: "This is a project",
+            meta: "Meta",
+            github: "https://github.com",
+            link: "https://google.com"
+          }
+        },
+        {
+          attributes: {
+            title: "Project 5",
+            content: "This is a project",
+            meta: "Meta",
+            github: "https://github.com",
+            link: "https://google.com"
+          }
+        }
+      ]
+  }
 
   return {
     props: { projects }

@@ -1,8 +1,9 @@
 export function Projects({ projects }) {
+  console.log('projects', projects)
   return (
     <div className='pb-10'>
       <ul className="timeline-list">
-        {projects.map((project, index) => {
+        {projects.data.map((project, index) => {
           return (
             <li key={index}>
               <div className="content">
