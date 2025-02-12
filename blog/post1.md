@@ -1,35 +1,32 @@
 ---
-title: "My First Blog Post"
+title: "npm vs Yarn: What Are the Differences?"
 date: "2024-12-09"
-excerpt: "Hello this is an excert"
+excerpt: "When working with JavaScript and Node.js projects, you’ll often need a package manager to handle dependencies"
 ---
 
-# **npm vs Yarn: What Are the Differences?**
+# **What Are the Differences between npm and Yarn?**
 
-When working with JavaScript and Node.js projects, you’ll often need a package manager to handle dependencies. The two most popular options are **npm** (Node Package Manager) and **Yarn**. Both are powerful tools, but they have key differences that might influence which one you choose.
+When working with JavaScript and Node.js projects, you’ll often need a package manager to handle dependencies. The two most popular options are **npm** and **Yarn**. Both are powerful tools, but they have key differences that might influence which one you choose.
 
----
 
-## **1. What Are npm and Yarn?**
+## What Are npm and Yarn?
 - **npm**: The default package manager for Node.js, introduced in 2010. It comes bundled with Node.js installations.
 - **Yarn**: A package manager created by Facebook in 2016 to address some of npm's shortcomings at the time, such as speed and security.
 
----
 
-## **2. Key Differences**
-
-### **a. Speed**
+## Key Differences
+### 1. Speed
 - **npm**:
   - Historically slower due to a less optimized installation process.
   - With the release of npm 5 and beyond, performance improved significantly by introducing caching and parallelism.
 - **Yarn**:
   - Faster in many scenarios, thanks to parallel downloads and a more efficient caching mechanism.
 
-### **b. Package Locking**
-- **npm**:
+### **Package Locking**
+**npm**:
   - Uses a `package-lock.json` file to lock dependency versions and ensure consistent installs across environments.
   - Introduced deterministic dependency resolution starting with npm 5.
-- **Yarn**:
+**Yarn**:
   - Uses a `yarn.lock` file, which was one of its standout features when it launched.
   - Ensures consistent dependency trees and faster installs by leveraging the lock file.
 

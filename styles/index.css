@@ -2,33 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Akkurat-Mono';
-  src: local('Akkurat-Mono'), url(/fonts/Akkurat-Mono.OTF) format('opentype');
-}
-
-@font-face {
-  font-family: 'Akkurat-Regular-Pro';
-  src: local('Akkurat-Regular-Pro'), url(/fonts/Akkurat-Regular-Pro.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'Akkurat';
-  src: local('Akkurat'), url(/fonts/Akkurat.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Romana-BT-Roman';
-  src: local('Romana-BT-Roman'), url(/fonts/Romana-BT-Roman.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Akkurat-Light';
-  src: local('Akkurat-Light'), url(/fonts/Akkurat-Light.ttf) format('truetype');
-}
 
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 html, body {
@@ -38,56 +14,50 @@ html, body {
   padding: 0;
   font-size: 1em;
   background-color: #f7f7f7;
-  font-family: 'Akkurat-Mono', sans-serif, Arial, Helvetica;
-}
-
-h1,h2,h3,h4,h5,h6 {
-  font-family: 'Akkurat', Arial, Helvetica, sans-serif;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 h2 {
-  font-family: 'Romana-BT-Roman', Arial, Helvetica, sans-serif;
-  letter-spacing: 0.04em;
-  font-size: 1.3em;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 h3 {
-	font-size: 1em;
-	line-height:1.2em;
+  font-size: 1rem;
+	line-height: 1.2em;
 	letter-spacing:0.02em;
-  font-weight: 500;
+  font-weight: 700;
+
 	@media all and (min-width:40em) {
-	  font-size: 2.5em;
+	  font-size: 1.1em;
 	}
 }
 
 p, label {
-  font-family: 'Akkurat-Light', Arial, Helvetica, sans-serif;
-  font-weight: 100;
   line-height: 24px;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 
 a {
-  font-family: 'Akkurat-Light', sans-serif;
   flex: "1 1 0%";
   height: 12px;
   font-size: 12px;
   line-height: 16px; 
   text-align: center;
   letter-spacing: 0.1em;
-  text-transform: "uppercase"
+  text-transform: "uppercase";
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
 }
 
 .logo img:hover {
   fill: red;
-}
-
-.description p, .description a {
-  font-family: 'Akkurat-Light', Arial, Helvetica, sans-serif;
-}
-
-.description p strong {
-  font-family: 'Akkurat', Arial, Helvetica, sans-serif;
 }
 
 .description a {
@@ -258,14 +228,9 @@ canvas{width:100%;height:100%;padding:0;margin:0;overflow: hidden;}
   }
 }
 
-.project .tools {
-  font-family: 'Akkurat', sans-serif;
-}
-
 .project a {
   padding: 0.5em 1.5em;
   margin-right: 1em;
-  font-family: 'Akkurat-Regular-Pro', sans-serif;
   font-size: 0.6em;
   position: relative;
   text-decoration: none;
@@ -317,35 +282,60 @@ input[type=range]::-ms-track {
   cursor: pointer;
 }
 
+.post-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 20% 100px 20%;
+}
+
+.post-content h1 {
+  font-size: 2rem;
+  line-height: 2rem;
+  margin: 30px 0;
+}
+
 .post-content h2 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   padding: 1rem 0;
-  font-family: 'Akkurat';
+}
+
+.post-content h3 {
+  font-size: 1rem;
 }
 
 .post-content ul {
   padding: 1rem 0;
   margin-left: 10px;
 }
-.post-content ul li {
-  list-style-type: circle;
-  fill:#141414;
-  padding-bottom: 10px;
-}
 
-.post-content ul li, .post-content ul li p {
-  font-family: 'Akkurat';
-  font-size: 1rem;
+.post-content ul li {
+  font-family: 'Karla', sans-serif;
+  list-style-type: none;
+  padding-bottom: 10px;
+  font-weight: 100;
+  font-size: 1.1rem;
+  margin-left: 30px;
 }
 
 .post-content p {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.1rem;
   padding: 0.5rem 0;
-  font-size: 1.05em;
-  line-height: 2em;
+  line-height: 1.6em;
+  font-weight: 400;
+}
+
+.post-content ul li p {
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.7rem 0;
+  color: rgb(54, 50, 50)
 }
 
 .post-content blockquote p {
   margin-left: 20px;
+  font-weight: 200;
   font-style: italic;
   padding: 20px 0;
   line-height: 1.5em;
@@ -365,7 +355,18 @@ input[type=range]::-ms-track {
   padding: 1rem 0;
 }
 
-.light {
-  font-family: 'Akkurat-Light';
+@media screen and (max-width: 600px) {
+  .post-content {
+    padding: 50px 0;
+  }
 }
 
+@media screen and (min-width: 1024px) {
+  .post-content {
+    padding: 50px 30% 100px 30%;
+  }
+}
+
+strong {
+  font-weight: 900;
+}

@@ -2,6 +2,7 @@ import Intro from '@/components/intro'
 import Layout from '@/components/layout'
 import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
+import 'highlight.js/styles/github.css';
 
 export default function Index({ allPosts, preview }) {
   return (

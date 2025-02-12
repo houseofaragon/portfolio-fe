@@ -6,7 +6,6 @@ import fs from 'fs'
 import matter from 'gray-matter'
 
 export default function Index({ posts, preview }) {
-  console.log('posss', posts)
   return (
     <>
       <Layout preview={preview}>
@@ -15,9 +14,9 @@ export default function Index({ posts, preview }) {
         </Head>
         <div className="flex flex-row grid gap-10 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2">
           <div className="basis-1/3 mr-5 md:mr-20">
-            <h2 className="hidden text-3xl md:text-l md:block"><b>—</b> Writing </h2>
+            <h2 className="hidden text-2xl md:text-l md:block"><b>—</b> Writing </h2>
             <br/>
-            <div className='description dark:text-slate-300'>
+            <div className='description dark:text-slate-300 text-md'>
               <p>I'm a creature of habit who keeps up with a daily work journal. I keep extensive documentation and I often write out snippets of code before I type it out because writing helps me synthesize the information better. 
               </p>
               <br/>
@@ -27,7 +26,6 @@ export default function Index({ posts, preview }) {
           <div className="basis-2/3 pb-10">
           <ul className="timeline-list">
             {posts.map((post, index) => {
-              console.log(post)
               return (
                 <li key={index}>
                   <div className="content">
@@ -67,7 +65,6 @@ export async function getStaticProps() {
     }
   })
 
-  console.log(posts)
   return {
     props: {
       posts,

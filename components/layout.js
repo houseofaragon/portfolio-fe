@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 export default function Layout({ preview, children }) {
   const [isDarkTheme, setDarkTheme] = useState(false)
 
-
   useEffect(() => {
     const theme = localStorage.getItem('darkTheme')
     if (theme === 'dark') {

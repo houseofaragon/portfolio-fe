@@ -8,11 +8,10 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html';
+import rehypeHighlight from 'rehype-highlight'
 
 function PostContent({ data, content }) {
-  console.log('data', data)
-  console.log('content', content)
-  const htmlContent = `<div class="markdown">${content}</div>`
+  const htmlContent = `<div class="markdown-body">${content}</div>`
 
   return (
     <>
@@ -37,9 +36,7 @@ export default function Post({ post }) {
         ? <div>Loading</div>
         : (
           <div>
-          <h1>{post.data.title}</h1>
-          <p>{post.data.date}</p>
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <PostBody content={post.content} />
         </div>
         )}
     </Layout>
@@ -53,7 +50,8 @@ export async function getStaticProps({ params, preview = null }) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   const { data, content } = matter(fileContents)
-  const processedContent = await remark().use(html).process(content)
+  const processedContent = await remark()
+    .use(html).use(rehypeHighlight).process(content)
   const htmlContent = processedContent.toString()
 
   return {
