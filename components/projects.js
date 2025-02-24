@@ -27,8 +27,8 @@ function Project({project, index}) {
     return (
       <div className="project pt-5 -mb-5 md:mb-10 md:pr-10 leading-relaxed">
         <h3 className='pb-3'>{title}</h3>
-        <p className='pb-3 text-l text-slate-600 dark:text-slate-300'> {content} </p>
-        <p className='pb-3 text-xs'> Tools: <span className="tools">{meta}</span></p>
+        <p className='pb-3 text-slate-600 dark:text-slate-300'> {content} </p>
+        <p className='pb-3 dark:text-slate-300'> Tools: <span className="tools">{meta}</span></p>
         <a className='text-xs
         bg-purple-200
         hover:bg-purple-100

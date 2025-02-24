@@ -6,120 +6,138 @@ excerpt: "Stable Diffusion for the rest of us."
 
 # Stable Diffusion
 
-Stable diffusion is a model that takes text as an input and outputs an image. It belongs to a class of deep learning models called diffusion models.
+Stable Diffusion is a beautiful deep learning model that can turn a simple text prompt into a brand new image. What’s a deep learning model you ask? Simply put, it's a type of model that uses neural networks to learn patterns and make predictions. And Stable Diffusion is part of a larger family of models called diffusion models.
 
-Diffusion models are generative models that generate new data similar to what they have seen in training - which are images.
+Diffusion models are all about generating new things—like images—that look similar to what they’ve seen during training. So when you give it a text prompt, it creates something unique, but still in line with what it's learned.
 
-## The Magic API
+## Why is diffusion in the name?
 
-Imagine you are trying to generate images of cheese. How could we go about it? We have a magic handwritten function we can call.
-We pass in an image Image1 into the Magic API and it tells us the probability that image is an image of cheese..
+Stable Diffusion is called `diffusion` because its core mechanism closely resembles the physical process of diffusion, where something gradually spreads out from a concentrated area to a less concentrated one, mirroring how the model works by adding noise to an image (like spreading out information) and then gradually removing that noise to generate a new image, essentially "reversing" the diffusion process; this mathematical similarity to physics is why the model is named "diffusion". 
 
-This Magic API is special because we can use it to generate actual images of cheese.
+## Key components of Stable Diffusion
 
-Let's start with a 28x28 image with 784 pixels. Each time we update a pixel in the image (either ligther or darker) we pass it into the function and see how the probability changes.
+`1.` Autoencoder - used to encode and decode image.  
+`2.` CLIP - used to generate text-image relationship.  
+`3.` UNet - used to denoise the image.
 
-We want the gradient of the probability that Image1 is a handwritten digit with respect to the pixels of Image1. Remember: As I change the input pixels, we expect the probability that it is a cheese image, and hopefully that probability goes up 
+## Stable Diffusion Pipeline
+**__Step 1__**  
+Start with a text prompt and a randomly generated image of noise in latent space. (a compressed or abstracted form of the image)
 
-## Generating Training Data
+**__Step 2__**  
+Use the CLIP model (trained on image-text pairs) to generate a text embedding of the prompt.
 
-We can take actual images of cheese and add random noise on top of it. Then we can predict how much noise was added, verses generating an exact score telling us how much these noisy images are like images of cheese.
+**__Step 3__**  
+Use the UNet model to gradually denoise the image with the guidance of the CLIP text embedding based on a noise schedule.
 
-So, an image with no noise has a high probability it is cheese versus an image with a lot of noise looks less like cheese.
-
-## Lets build the Neural Network - UNet
-A UNet is a convolutional neural network 
-
-
-Inputs- images with random ranges of noise on top of them
-
-Output - noise
-
-Loss Function - mean square error between the predicted output (noise) and the actual noise)
+**__Step 4__**  
+Use the Autoencoder model to decode the image from latent space into a pixel image.
 
 
-## Training the Neural Network
+## Step 1 Prompt + latent image
 
-We pass the NN an image and its going to ouput information about what part of the image it thinks is noise. This happens over many many iterations
+We start with a text prompt
 
-## Building blocks of Stable Diffusion
+```javascript
+prompt = ["a banana riding a skateboard"]
+```
 
-We Can teach a neural network to predict the noise added. UNET - takes an image -> predicts the noise in the image. Images are 512x512x3 (rgb) - but this would take a long long time to train so to speed things up with can think about using an Autoencoder (encoder/decoder)
+and a randomly generated image of noise in latent space or latent image for short. This is not an image in pixels, it is a random noise vector or you can thinkg of this as an array of randomly distributed values (normally a Gaussian distribution)
 
-- pick a training image, image of cheese
-- generate a random noise image (actually random tensor in latent space - latent noise)
-- add the noise to the image of cheese (latent image)
-- teach the UNET to predict how much noise is added
+```javascript
+latents = torch.randn(
+  (batch_size, unet.in_channels, height // 8, width // 8),
+  generator=generator,
+)
 
-## UNet
+latents = latents.to(device)
+```
 
-`1.` A random latent space matrix is generated. Forward Diffusion - corrupting training image by adding noise to it
-`2.` The noise predictor estimates the noise of the latent matrix. 
-`3.` The estimated noise is then subtracted from the latent matrix. Reverse Diffusion - recovering original image by removing the noise added
+Normally, when we think of images, we think about pixels. However, the reason Stable Diffusion stands out from other diffusion models is that it uses images in latent space which means images compressed down with smaller memory footprint. Working in pixels at a high resolution requires a lot of GPU memory. So as we'll see below, Stable diffusion starts with an image in latent space, then the latent representation is decoded back into a full-resolution image.
 
-`4.` Steps 2 and 3 are repeated up to specific sampling steps.
-`5.` The decoder of VAE converts the latent matrix to the final image.
+# Step 2 - Image + Text relationship with CLIP
 
-`2` VAE - Variational Autoencoder - for image compression. There is an encoder and decords. 
-The encoder encodes the larger image into a smaller image representation - called latents.
+## What is CLIP??
+CLIP stands for Contrastive Language-Image Pretraining and was developed by OpenAI
 
-Decoder does the opposite, decoding the latests (smaller images) back to a larger image representation.
+CLIP is a model that understands the relationship between and image and text, because it was trained on image-text pairs.
 
-We can use the encoded (smaller) images and pass them into the UNet which returns the predicted noise in the image
+When CLIP is given a text like *"a yellow ball"* it returns a text embedding which is a numerical representation that the computer can understand. But we can think of this as a dictionary or object containing information about the prompt.
 
-We can then take the predicted noise and subtract it from the encoders latents to get denoised latents.
+If the prompt was `a yellow ball` the text embedding stores key characteristics of a "yellow ball"--like the color (yellow), the shape (round), and other related associations that CLIP has learned from training on imag-text pairs.
 
-The denoised latents are then passed through the VAE's decoder which returns a larger image representation.
+```javascript
+tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")
+text_encoder = CLIPTextModel.from_pretrained("openai/clip-vit-large-patch14")
 
-Notes:
-`1)` VAE is optional. used to make training faster
-`2)` VAE is only needed during training, not during inference
+text_input = tokenizer(prompt, padding="max_length", max_length=tokenizer.model_max_length, truncation=True, return_tensors="pt")
 
-## CLIP - Contrastive Language Image Pretraining
-## Gathering training images
+with torch.no_grad():
+  text_embeddings = text_encoder(text_input.input_ids.to(device))[0]
+```
 
-CLIP is a deep learning model that produces text descriptions of any images.
-
-We can scrape images from the web with an alt tag with some description
-
-<img href="..." alt="a block of swiss cheese" />
-
-## Create Text and Image Encoder (Multimodal - using more than one mode)
-
-## CLIP Tokenizer
-- We pass text to the text encoder (tokenizer) which will output a text embedding. The tokenizer looks at each word from the prompt and embeds this in a vector.
-- We pass an image to the image encoder which will output an image embedding.
-
-Our hope is that we find text embeddings similar to image embeddings. We can tell our model to do this by taking the dot product of each embedding (image embedding * text embedding) the higher the result the more similar they are.
-
-## Recap
-
-There are three main parts.
-`1.` UNet - denoises latents into noisy latents
-`2.` Variational AutoEncoder - take an image and encode it into a latent, take a latent and decode it into image.
-`3)` CLIP - we introduce a text encoder that can guide the UNet with captions
+This text embedding with the characterists of the prompt is important because it is used in the UNet model to help guide the denoising of the latent image from step 1. 
 
 
-Stable Diffusion is a latent diffusion model - meaning it doesn't operate in the pixel space, it operates in the latent space of a Variational Autonencoder.
+# Step 3 Denoising image with UNet
 
+## What is a UNet?
+UNet is a convolutional neural network that gets its name from the "U" shape it generates from encoding an image down to a smaller representation then doing the reverse to decode it back to larger representation. 
 
-## Noise schedule
+CNN's like UNet have been trained with a huge variety of images with corresponding text descriptions so they're great at recognizing patterns and learning general features like edges, shapes, and colors.
 
-noise graph from 0 -> # of steps. The higher the step the less noise the image will have, meaning if you select 0 there will be a lot of noise in the image, and if you select 1000, there will be very little if not none.
+## Running the model
+When the model is run, it starts with the random noise from Step 1 and uses the text embedding from Step 2 to guide the denoising process. The model uses CLIP to guide the UNet by finding the closest image to the text prompt in the shared embedding space. Because it has learned general patterns and characteristics `yellow` and `ball` it can eventually denoise the image to a point where an image of a `yellow ball` is created.
 
-Gradients 
+Instead of copying exact images, it generates a new composition that best matches the text embedding.
 
-Creating mini batches from training. 
+```javascript
+for t in tqdm(scheduler.timesteps):
+  latent_model_input = scheduler.scale_model_input(latent_model_input, t)
 
-`1. ` You randomly pick images from training set  
-`2.` Randomly pick the amount of noise or select a number from the noise graph.  
-`3. ` When you pass mini batch into model, the model is trained to predict NOISE
+  # predict the noise residual
+  with torch.no_grad():
+    noise_pred = unet(latent_model_input, t, encoder_hidden_states=text_embeddings).sample
 
+  # perform guidance
+  noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
+  noise_pred = noise_pred_uncond + guidance_scale * (noise_pred_text - noise_pred_uncond)
 
+  # compute the previous noisy sample x_t -> x_t-1
+  latents = scheduler.step(noise_pred, t, latents).prev_sample
+```
 
-Step 1: Generate random noise in latent space (a vector) using encoder from VAE
-Step 2: Feed this latent image + text embedding into the UNet model which predicts the amount of noise in the image
-Step 3: Subtract the noise predicted in step 2 from the image created in step 1
-Repeat Step 2 + 3 based on number of steps user provides
+## Similarity Between Text and Image Embeddings
+- The model uses the text embedding to guide the generation of an image. The model’s goal is to generate an image whose image embedding is close to the text embedding in the embedding space.
+- The similarity is computed by taking the dot product of the text embedding and image embedding. A higher dot product means the text and image are more similar.
+- For generating images, the text embedding guides the generation of images so that when the image is generated and passed through the image encoder, it should be close to the text embedding in this shared embedding space.
 
-Step 4: Decode latent image to get high resolution image
+# Step 4 - Decoding the latent image
+
+The final outcome is to take the denoised image from the UNet and convert it back into a pixel representation using the Autoencoders decoder.
+
+```
+# scale and decode the image latents with vae
+latents = 1 / 0.18215 * latents
+
+with torch.no_grad():
+  image = vae.decode(latents).sample
+```
+
+## What happens during training the Neural Network?
+
+The above steps outline what happens when running the model after it has already be trained (this means running inference on the model).
+
+But lets take a step back and talk about the process of training the model.
+
+**__Step 1__**  
+Start with a clean training image.
+
+**__Step 2__**
+Use the Autoencder to encode the image (to make training faster).
+
+**__Step 3__** 
+Gradually add noise to the image using a scheduler (which would add noise at an interval)
+
+**__Step 4__**  
+Train the UNet to predict the noise and learn how to remove it during the denoising process.

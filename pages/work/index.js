@@ -40,7 +40,16 @@ export async function getStaticProps() {
       data: [
         {
           attributes: {
-            title: "Project 1",
+            title: "Visualizing Transformers",
+            content: "A real-time application enabling users to explore U.S. sanctions data, with visualizations highlighting activity by volume, geography, presidential administration, and growth rate",
+            meta: "Meta",
+            github: "https://github.com",
+            link: "https://google.com"
+          }
+        },
+        {
+          attributes: {
+            title: "Local-first Collaborative Digital Garden",
             content: "This is a project",
             meta: "Meta",
             github: "https://github.com",
@@ -49,36 +58,35 @@ export async function getStaticProps() {
         },
         {
           attributes: {
-            title: "Project 2",
-            content: "This is a project",
-            meta: "Meta",
-            github: "https://github.com",
-            link: "https://google.com"
+            title: "WebGL Experiments",
+            content: "A collaborative Audio and WebGL/3D site featuring interactive visuals and shaders running on the GPU.",
+            meta: "React + ThreeJs",
+            github: "https://github.com/fifteenpm",
+            link: "https://fifteen.pm/"
           }
         },
         {
           attributes: {
-            title: "Project 3",
-            content: "This is a project",
-            meta: "Meta",
-            github: "https://github.com",
-            link: "https://google.com"
+            title: "Sanctions Tracker",
+            content: "A real-time application enabling users to explore U.S. sanctions data, with visualizations highlighting activity by volume, geography, presidential administration, and growth rate.",
+            meta: "React + D3",
+            link: "https://enigma.com/blog/post/sanctions-tracker"
           }
         },
         {
           attributes: {
-            title: "Project 4",
-            content: "This is a project",
-            meta: "Meta",
-            github: "https://github.com",
-            link: "https://google.com"
+            title: "Global Visualization of tweets",
+            content: "A real-time Node and D3 Global visualization of geotagged tweets about #pms.",
+            meta: "D3 + Node + Socket.io + Twitter API",
+            github: "https://github.com/houseofaragon/pmswithus",
+            link: "https://pmswithus.herokuapp.com/"
           }
         },
         {
           attributes: {
-            title: "Project 5",
-            content: "This is a project",
-            meta: "Meta",
+            title: "KSHACK Records",
+            content: "Features interactive React and ThreeJS visuals, Audio player, static site generation with NextJS, and Strapi backend. Main site for NY based record label, KSHACK.",
+            meta: "React + ThreeJS",
             github: "https://github.com",
             link: "https://google.com"
           }

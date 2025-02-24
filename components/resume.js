@@ -24,8 +24,15 @@ export function Resume() {
         <ul className="timeline-list">
           <li>
             <div className="content md:pr-10 pt-5">
+              <h3>Bowery Farming</h3>
+              <p className="text-slate-600 dark:text-slate-300">Lead Software Engineer</p>
+              <p className="text-slate-600 dark:text-slate-300">2022-2024</p>
+            </div>
+          </li>
+          <li>
+            <div className="content md:pr-10 pt-5">
               <h3>Powerschool</h3>
-              <p className="text-slate-600 dark:text-slate-300">Associate Engineering Manager</p>
+              <p className="text-slate-600 dark:text-slate-300">Engineering Manager</p>
               <p className="text-slate-600 dark:text-slate-300">2021-2022</p>
             </div>
           </li>
@@ -34,11 +41,7 @@ export function Resume() {
             <h3>Schoology</h3>
             <p className="text-slate-600 dark:text-slate-300">Lead Engineer</p>
             <p className="text-slate-600 dark:text-slate-300">2019-2021</p>
-            </div>
-          </li>
-          <li>
-          <div className="content pr-10 pt-5">
-            <h3>Schoology</h3>
+            <br />
             <p className="text-slate-600 dark:text-slate-300">Senior Software Engineer</p>
             <p className="text-slate-600 dark:text-slate-300">2017-2019</p>
             </div>
