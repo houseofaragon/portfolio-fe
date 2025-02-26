@@ -9,6 +9,7 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html';
 import rehypeHighlight from 'rehype-highlight'
+import { markdownToHtml } from '@/lib/markdownToHtml'
 
 function PostContent({ data, content }) {
   const htmlContent = `<div class="markdown-body">${content}</div>`
@@ -27,7 +28,7 @@ function PostContent({ data, content }) {
     </>
   )
 }
-export default function Post({ post }) {
+export default function Post({ post}) {
   const router = useRouter()
 
   return (
@@ -36,29 +37,39 @@ export default function Post({ post }) {
         ? <div>Loading</div>
         : (
           <div>
-            <PostBody content={post.content} />
+            {post.prev}
+            {post.next}
+            <PostBody content={post.content} prev={post.prev} next={post.next} />
         </div>
         )}
     </Layout>
   )
 }
 
-export async function getStaticProps({ params, preview = null }) {
+export async function getStaticProps({ params }) {
   const { slug } = params
+
   const blogDir = path.join(process.cwd(), 'blog')
+  const filenames = fs.readdirSync(blogDir).filter((file) => file.endsWith('.md'))
+  const slugs = filenames.map((file) => file.replace('.md', ''))
+
+  const currentIndex = slugs.indexOf(slug)
+  const prev = currentIndex === 0 ? slugs[slugs.length - 1] : slugs[currentIndex - 1]
+  const next = currentIndex === slugs.length - 1 ? slugs[0] : slugs[currentIndex + 1]
+
   const fullPath = path.join(blogDir, `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   const { data, content } = matter(fileContents)
-  const processedContent = await remark()
-    .use(html).use(rehypeHighlight).process(content)
-  const htmlContent = processedContent.toString()
+  const htmlContent = await markdownToHtml(content)
 
   return {
     props: {
       post: {
-        data: data,
-        content: htmlContent
+        data,
+        content: htmlContent,
+        prev,
+        next,
       },
     },
   }
@@ -66,12 +77,16 @@ export async function getStaticProps({ params, preview = null }) {
 
 export async function getStaticPaths() {
   const blogDir = path.join(process.cwd(), 'blog')
-  const filenames = fs.readdirSync(blogDir)
-  const paths = filenames.map((filename) => ({
-    params: {
-      slug: filename.replace('.md', ''),
-    },
-  }))
+  const filenames = fs.readdirSync(blogDir).filter((file) => file.endsWith('.md'))
+
+  const paths = filenames.map((filename, idx) => {
+    const slug = filename.replace('.md', '')
+    return {
+      params: {
+        slug,
+      },
+    }
+  })
 
   return {
     paths,

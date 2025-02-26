@@ -23,22 +23,22 @@ export function Resume() {
       <div className="basis-2/3 l-contained pb-10">
         <ul className="timeline-list">
           <li>
-            <div className="content md:pr-10 pt-5">
-              <h3>Bowery Farming</h3>
+            <div className="content md:pr-5 pt-4">
+              <h3 className="text-lg mb-1">Bowery Farming</h3>
               <p className="text-slate-600 dark:text-slate-300">Lead Software Engineer</p>
               <p className="text-slate-600 dark:text-slate-300">2022-2024</p>
             </div>
           </li>
           <li>
-            <div className="content md:pr-10 pt-5">
-              <h3>Powerschool</h3>
+            <div className="content md:pr-5 pt-4">
+              <h3 className="text-lg mb-1">Powerschool</h3>
               <p className="text-slate-600 dark:text-slate-300">Engineering Manager</p>
               <p className="text-slate-600 dark:text-slate-300">2021-2022</p>
             </div>
           </li>
           <li>
-          <div className="content pr-10 pt-5">
-            <h3>Schoology</h3>
+          <div className="content pr-5 pt-4">
+            <h3 className="text-lg mb-1">Schoology</h3>
             <p className="text-slate-600 dark:text-slate-300">Lead Engineer</p>
             <p className="text-slate-600 dark:text-slate-300">2019-2021</p>
             <br />
@@ -47,15 +47,15 @@ export function Resume() {
             </div>
           </li>
           <li>
-          <div className="content pr-10 pt-5">
-            <h3>Enigma</h3>
+          <div className="content pr-5 pt-4">
+            <h3 className="text-lg mb-1">Enigma</h3>
             <p className="text-slate-600 dark:text-slate-300">Frontend Software Engineer</p>
             <p className="text-slate-600 dark:text-slate-300">2016</p>
             </div>
           </li>
           <li>
-            <div className="content pr-10 pt-5">
-            <h3>dMetrics</h3>
+            <div className="content pr-5 pt-4">
+            <h3 className="text-lg mb-1">dMetrics</h3>
             <p className="text-slate-600 dark:text-slate-300">Frontend Software Engineer</p>
             <p className="text-slate-600 dark:text-slate-300">2015</p>
             </div>

@@ -16,11 +16,12 @@ export default function Work({projects}) {
               <h2 className="hidden text-3xl md:text-l md:block"><b>—</b> Work </h2>
               <br />
               <div className='description dark:text-slate-300'>
-                <p> I've worked on many projects ranging from microservices to design systems to scaling initiatives.  At work I write in Node, React, Typescript and PHP.
+                <p> I've worked on many projects ranging from microservices to design systems to scaling initiatives.  At work I write in <strong>Elixir</strong>, <strong>Liveview</strong>, and <strong>React / Typescript</strong>.
+                  I have also have production experience with <strong>Node</strong>, <strong>Java</strong> and <strong>PHP</strong>.
                 </p>
                 <br />
                 <p>
-                I experiment with a wider range of technologies in my own personal projects which include: ThreeJS, D3, Vue, Nuxt, Next, Python.
+                I experiment with a wider range of technologies in my own personal projects which include: CRDT's, ThreeJS, D3, Python.
                 </p>
                 <br />
                 <p>All my projects are open sourced on <a href="https://github.com/houseofaragon" target="blank" >github</a>.</p>
