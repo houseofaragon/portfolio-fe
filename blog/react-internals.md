@@ -4,10 +4,7 @@ date: "2024-12-09"
 excerpt: "All the different way to navigate through an iterable"
 ---
 
-How would I go about rendering the data points on the map. The dataset itself has 687K rows, trying to load all at ones is a no-go.
-
-Consider using Deck.gl
-https://github.com/visgl/deck.gl/blob/9.1-release/docs/api-reference/layers/scatterplot-layer.md
+# React Internals
 
 ## Hooks
 

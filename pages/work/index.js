@@ -16,12 +16,12 @@ export default function Work({projects}) {
               <h2 className="hidden text-3xl md:text-l md:block"><b>—</b> Work </h2>
               <br />
               <div className='description dark:text-slate-300'>
-                <p> I've worked on many projects ranging from microservices to design systems to scaling initiatives.  At work I write in <strong>Elixir</strong>, <strong>Liveview</strong>, and <strong>React / Typescript</strong>.
-                  I have also have production experience with <strong>Node</strong>, <strong>Java</strong> and <strong>PHP</strong>.
+                <p> I've worked on many projects ranging from microservices to design systems to scaling initiatives.  At work I write in <strong>Elixir</strong>, <strong>LiveView</strong>, and <strong>React / Typescript</strong>.
+                  I also have production experience with <strong>Node</strong>, <strong>Java</strong>, <strong>PHP</strong> and <strong>Python</strong>.
                 </p>
                 <br />
                 <p>
-                I experiment with a wider range of technologies in my own personal projects which include: CRDT's, ThreeJS, D3, Python.
+                I experiment with a wider range of technologies in my own personal projects which include: <strong>Machine Learning</strong>, <strong>CRDT</strong>'s, <strong>ThreeJS</strong>, <strong>D3</strong>
                 </p>
                 <br />
                 <p>All my projects are open sourced on <a href="https://github.com/houseofaragon" target="blank" >github</a>.</p>
@@ -41,20 +41,20 @@ export async function getStaticProps() {
       data: [
         {
           attributes: {
-            title: "Visualizing Transformers",
-            content: "A real-time application enabling users to explore U.S. sanctions data, with visualizations highlighting activity by volume, geography, presidential administration, and growth rate",
-            meta: "Meta",
-            github: "https://github.com",
-            link: "https://google.com"
+            title: "Machine Learning Experiments in the Browser",
+            content: "Building interactive apps with ML using Transformers and ONNX",
+            meta: "React + Webworkers + Transformers + ONNX",
+            github: "https://github.com/houseofaragon/oracle-whisper",
+            link: "/posts/machine-learning-experiments"
           }
         },
         {
           attributes: {
             title: "Local-first Collaborative Digital Garden",
-            content: "This is a project",
-            meta: "Meta",
-            github: "https://github.com",
-            link: "https://google.com"
+            content: "A real-time collaborative digital garden using CRDTs running on my own personal server.",
+            meta: "React + CRDTs",
+            github: "https://github.com/houseofaragon/digital-garden",
+            link: "/posts/local-first-collaboration"
           }
         },
         {
@@ -68,19 +68,28 @@ export async function getStaticProps() {
         },
         {
           attributes: {
-            title: "Sanctions Tracker",
-            content: "A real-time application enabling users to explore U.S. sanctions data, with visualizations highlighting activity by volume, geography, presidential administration, and growth rate.",
-            meta: "React + D3",
-            link: "https://enigma.com/blog/post/sanctions-tracker"
+            title: "Chrome Extensions + Machine Learning",
+            content: "Building Chrome extensions for productivity and fun.",
+            meta: "React + Chrome API + Transformers",
+            github: "https://github.com/houseofaragon/pmswithus",
+            link: "posts/building-chrome-extensions"
           }
         },
         {
           attributes: {
-            title: "Global Visualization of tweets",
-            content: "A real-time Node and D3 Global visualization of geotagged tweets about #pms.",
-            meta: "D3 + Node + Socket.io + Twitter API",
-            github: "https://github.com/houseofaragon/pmswithus",
-            link: "https://pmswithus.herokuapp.com/"
+            title: "Algorithmic Filmmaking",
+            content: "A project that uses machine learning to generate film scripts and storyboards.",
+            meta: "Python + FFmpeg + Machine Learning",
+            github: "https://github.com",
+            link: "/posts/algorithmic-filmmaking"
+          }
+        },
+        {
+          attributes: {
+            title: "Data Visualization of Sanctions Data",
+            content: "A real-time application enabling users to explore U.S. sanctions data, with visualizations highlighting activity by volume, geography, presidential administration, and growth rate.",
+            meta: "React + D3",
+            link: "https://enigma.com/blog/post/sanctions-tracker"
           }
         },
         {

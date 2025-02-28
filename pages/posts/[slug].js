@@ -1,14 +1,10 @@
 import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
 import PostBody from '@/components/post-body'
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import path from 'path'
 import fs from 'fs'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html';
-import rehypeHighlight from 'rehype-highlight'
 import { markdownToHtml } from '@/lib/markdownToHtml'
 
 function PostContent({ data, content }) {
@@ -28,7 +24,8 @@ function PostContent({ data, content }) {
     </>
   )
 }
-export default function Post({ post}) {
+
+export default function Post({ post }) {
   const router = useRouter()
 
   return (
@@ -37,13 +34,20 @@ export default function Post({ post}) {
         ? <div>Loading</div>
         : (
           <div>
-            {post.prev}
-            {post.next}
-            <PostBody content={post.content} prev={post.prev} next={post.next} />
+            <PostBody 
+              content={post.content}
+              prev={post.prev}
+              next={post.next}
+              morePosts={post.morePosts}
+            />
         </div>
         )}
     </Layout>
   )
+}
+
+function getRandomNumber(max) {
+  return 1 + Math.floor(Math.random() * max)
 }
 
 export async function getStaticProps({ params }) {
@@ -62,7 +66,7 @@ export async function getStaticProps({ params }) {
 
   const { data, content } = matter(fileContents)
   const htmlContent = await markdownToHtml(content)
-
+  
   return {
     props: {
       post: {

@@ -4,6 +4,8 @@ date: "2025-02-09"
 excerpt: "It all felt like science fiction"
 ---
 
+# What I learned working at a vertical farming company
+
 Each crop has a camera placed above it taking an image every five minutes.
 
 Computer vision model that has been trained to detect if the plant is or is not a plant.

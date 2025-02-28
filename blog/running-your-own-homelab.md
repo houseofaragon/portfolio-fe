@@ -1,8 +1,22 @@
 ---
-title: "Running your own homelab for the rest of us"
+title: "Running your own private server"
 date: "2025-02-09"
-excerpt: "A how-to guide for runing your own homelab using raspberry Pi and Nginx"
+excerpt: "A how-to guide for running your own homelab using raspberry Pi and Nginx"
 ---
+
+# Running your own homelab aka private server
+
+> This posts steps through setting up a raspberry pi, connecting it to the internet, securing it with Tailscale, and serving apps with nginx
+
+How many of us have raspberry pi's collecting dust? I don't actually know, but for me, I had two just sitting idly. First they were on my bookshelf for a while, then into a box that sat a shelf in my shoe closet.
+
+I was inspired while at the [Recurse Center](https://www.recurse.com/) to put them to use.
+
+I learned I could use one to run my own private server. That meant connecting my raspberry pi to the internet and hosting my own apps on the raspberry pi. I also learned I could make it secure through a VPN, specifically Tailscale.
+
+I was also inspired to make my apps secure from learning about [local-first software](/posts/local-first-collaboration).
+
+Let's see about running our own homelab!
 
 ## Things you'll need
 1. A Raspberry Pi (I'm using version 4)
@@ -92,5 +106,7 @@ at recurse on tailscale -> should have access,
 
 https://login.tailscale.com/admin/users
 
-**give usrers access to public ip
-**196.168 is always private ip
+
+## Conclusion
+
+Hopefully this gives you enough information to put your own raspberry pi to good use and host your own private apps!

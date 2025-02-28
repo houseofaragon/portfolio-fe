@@ -282,6 +282,8 @@ input[type=range]::-ms-track {
   cursor: pointer;
 }
 
+
+
 .post-content {
   display: flex;
   flex-direction: column;
@@ -332,18 +334,34 @@ input[type=range]::-ms-track {
   color: rgb(54, 50, 50)
 }
 
+.post-content blockquote {
+  border-left: 3px solid rgb(192, 132, 252);;
+  margin-bottom: 20px;
+}
+
 .post-content blockquote p {
   margin-left: 20px;
   font-weight: 200;
   font-style: italic;
-  padding: 20px 0;
+  padding: 10px 0;
   line-height: 1.5em;
 }
 
+.post-content strong {
+  color:rgb(127, 10, 244);
+  font-weight: 600;
+}
+
 .post-content a {
-  font-size: 1em;
+  font-size: 0.9em;
   letter-spacing: 0;
+  font-weight: 600;
+  /* color:rgb(162, 77, 246); */
   text-decoration: underline;
+}
+
+.post-content a:hover {
+  color:rgb(173, 104, 241);
 }
 
 .post-content h2 {
@@ -352,6 +370,40 @@ input[type=range]::-ms-track {
 
 .post-content pre {
   padding: 1rem 0;
+}
+
+.post-content ol {
+  list-style: none;
+  counter-reset: counter;
+}
+
+.post-content ol li {
+  counter-increment: counter;
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+
+.post-content ol li::before {
+  content: counter(counter) "  ";
+  color: rgb(192, 132, 252);
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.post-navigation a {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.post-navigation a:hover {
+  text-decoration: underline;
+  color: rgb(192, 132, 252)
 }
 
 @media screen and (max-width: 600px) {

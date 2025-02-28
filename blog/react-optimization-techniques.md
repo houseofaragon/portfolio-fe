@@ -4,11 +4,13 @@ date: "2025-02-09"
 excerpt: "Deep dive into react reconciliation and optimization techniques"
 ---
 
-I have been an engineer for quite some time now, and the main constant in the companies I choose to work for is having React as the main frontend framework.
+# What is React re-rendering?
 
-When I first learned about React.memo and useMemo and useCallback - I was like cool let's use it everywhere! Re-rendering is expensive and anything that keeps from re-rendering is great. Wrap all stateful components in React.memo, wrap all expensive calculations in useMemo, wrap all callbacks in stateful components in useCallback.
+> We'll develop a nice mental model for how React decides when a component will re-render and all about memoization. 
 
-It wasn't until I really understand reconciliation and how react determines what components to re-render that I realized this was actually doing harm than good because I was using them in cases where they didnt even work!
+When I first learned about **memoization** (React.memo and useMemo and useCallback) - I was like cool let's use it everywhere! Re-rendering is expensive and anything that keeps from re-rendering is great. Wrap all stateful components in React.memo, wrap all expensive calculations in useMemo, wrap all callbacks in stateful components in useCallback.
+
+It wasn't until I really understood how **reconciliation** works (a fancy word for how react determines what components to re-render) that I realized this was actually doing more harm than good because I was using them in cases where components were still re-rendering despite being memoized!
 
 To understand when to use memoization, I first had to build a mental model about how React decides when to re-render.
 
@@ -24,6 +26,7 @@ Let's first talk about the triple equal comparison (`===`) which means when eval
     const component1 = { type: 'input' }
     const component2 = { type: 'input' }
 ```
+
 What do you think `console.log(component1 === component2)` will equal? If you guessed false, you're correct! This is because in javascript when we create a variable that is initialized with an object, the variable points to a reference in memory that stores that object. So even though component1 and component2 have the same value, they point to two different places in memory.
 
 # Virtual DOM
@@ -147,6 +150,5 @@ const Component = () => {
 ```
 
 # When to use memoization
-1) When the prop is used as a dependency in another hook in the downstream component
-
-2) When the component is wrapped in React.memo
+1. When the prop is used as a dependency in another hook in the downstream component
+2. When the component is wrapped in React.memo

@@ -359,15 +359,3 @@ do {
 ### Use Case:
 
 When you need at least one iteration regardless of the condition.
-
----
-
-## Choosing the Right Iteration Method
-
-| **Scenario**                | **Best Method**     |
-| --------------------------- | ------------------- |
-| Accessing elements by index | `for` or `for...of` |
-| Transforming array elements | `map`               |
-| Filtering elements          | `filter`            |
-| Iterating without           |                     |
-

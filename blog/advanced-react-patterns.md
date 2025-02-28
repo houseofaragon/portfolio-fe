@@ -4,8 +4,6 @@ date: "2024-12-09"
 excerpt: "Hello this is an excert"
 ---
 
-When not to memo
-
 # Moving State Down the component tree
 Performance / Optimization
 Explain the react Re-rendering flow
