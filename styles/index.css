@@ -327,6 +327,15 @@ input[type=range]::-ms-track {
   font-weight: 400;
 }
 
+.post-content ol li {
+  display: flex;
+  align-items: flex-start;
+}
+
+.post-content ol li p {
+  padding: 0
+} 
+
 .post-content ul li p {
   font-weight: 300;
   font-size: 1rem;

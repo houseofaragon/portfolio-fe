@@ -1,88 +1,116 @@
 ---
 title: "My time at the Recurse Center"
 date: "2025-02-09"
-excerpt: "It all felt like science fiction"
+excerpt: "All the things I learned at my engineering sabbatical."
+tags: "React"
 ---
 
 # My time at the Recurse Center
 
-Each crop has a camera placed above it taking an image every five minutes.
+The [Recurse Center](https://www.recurse.com/) is a truly special place where engineers go to be even better engineers. 
 
-Computer vision model that has been trained to detect if the plant is or is not a plant.
+I worked at the edge of my abilities, exercised my volitional muscles, worked on so many projects, learned to be kind to my [inner artist](https://en.wikipedia.org/wiki/The_Artist%27s_Way).
 
-Computer vision model that has been trained to detect discoloration in the leaves. Red bounding box to detect.
+And after completing a 12 week batch I truly know deep in my heart that I am a better engineer. The energy in my batch was contagious. I found confidence in myself that had waned a bit, I found joy in building things, 
 
-Video service called Cyclops that takes the images and stitches them into videos.
+During my batch I:
+- built a neural network from scratch
+- built a tokenizer
+- built a browser
+- learned how Stable Diffusion models works
+- built a lot of interactive creative applications
+- incorporate machine learning and art
+- read the Nature of Code
+- algorithmic filmmaking
 
-We automatically alert systems or alert human operators to take action.
+## I went deep into Machine learning 
 
-High throughput systems.
+For the first 6 weeks of my batch I learned how to **build a neural network from scratch** in python by going through Andrj Karpathy's [Neural Networks: Zero to Hero course](https://karpathy.ai/zero-to-hero.html). 
 
-Resource allocation.
+I went from building a bigram character-level model to a  generatively pretrained **transformer** (GPT)
 
-Highly available, fault tolerant.
+!['transformer image'](/images/transformer.png)
 
-FFmpeg
+I wrote an implementation of [micrograd](https://github.com/karpathy/micrograd) - A tiny Autograd engine that implements backpropagation (reverse-mode autodiff) over a dynamically built DAG and a small neural networks library on top of it with a PyTorch-like API.
 
-Oban broadcasting - ensuring data warehouse is up to date. 
-Transactionality - Oban starts where tasks end - why Oban when elixir OTP out of the gate. 
-
-
-Taken an initiative to help Identify db-connection and cpu utilization issues and lead efforts into
-our Case Data retention.
-2. Lead the Transshipping and Transplanting refactor projects
-3. Document/understand the Transplanting flow - this include a deeper technical dive into the code
-and a whimsical diagram.
-
-Automating the Crop Transplanting Process
-At Bowery Farming, I helped automate the manual process of transplanting crops by integrating a machine into the workflow. Previously, farm workers manually moved seedlings from trays to larger containers — a time-consuming, repetitive task prone to human error.
-
-I collaborated closely with backend engineers and farm operators to design and implement a frontend interface that communicated with the transplanting machine. Using React and WebSockets, I built a real-time dashboard that displayed machine status, progress metrics, and error alerts. This allowed workers to monitor operations and intervene only when necessary.
-
-By automating this workflow, we reduced transplanting time by X%, decreased human error, and freed up workers for more complex tasks. This project strengthened my ability to translate physical processes into intuitive digital interfaces, work with IoT devices, and contribute directly to efficiency gains.
-
-Migrating an Application from Vue to React
-I led the migration of a critical application from Vue to React, modernizing the codebase and improving maintainability. The app was central to farm operations, so the migration had to be seamless to avoid disruption.
-
-I started by auditing the existing Vue components, mapping them to equivalent React patterns, and creating a phased migration plan to minimize downtime. I introduced React hooks, improved state management with Redux, and leveraged React Router for cleaner navigation.
-
-The migration not only improved performance but also unified the tech stack, making it easier for engineers to contribute across projects. It also reduced bundle size by X%, speeding up load times. This experience honed my ability to make architectural decisions, lead incremental migrations, and balance short-term needs with long-term scalability.
+I wrote a lot of `python` and implemented methods in `Pytorch` (class Embedding, Flatten, Tanh ...) [Messy code here](https://github.com/houseofaragon/neural-network-labs/blob/main/6%20-%20Makemore%205%20-%20WaveNet/cnn.ipynb). 
 
 
-Developing a frontent / backend data contract
-At Bowery Farming, we struggled with data inconsistencies and evolving API requirements that slowed down frontend development. Our backend, built in Elixir, served REST endpoints, while the frontend used React. As features grew more complex, the lack of a clear, enforceable contract between the two caused frequent misalignment — small backend changes could break UI components, and frontend teams often had to wait for backend updates to test new features.
+## Built a tokenizer
 
-Solution:
-I spearheaded the adoption of GraphQL to establish a well-defined data contract between the frontend and backend. This approach gave the frontend precise control over the data it needed, eliminating issues like over-fetching and under-fetching. On the backend, we leveraged Absinthe (GraphQL library for Elixir) to define the schema and resolvers, while on the frontend, we used Apollo Client to handle queries and mutations.
+I was inspired by 3Blue1Brown **Transformers** video to visualize the next token probabilities from `GPT-2`. So I built a fast-api endpoint using `from transformers import GPT2LMHeadModel, GPT2Tokenizer` to get the next tokens, and a simple react form  with d3 bar chart. 
 
-Process:
+!['tokenizer image'](/images/tokenizer.png)
 
-Schema Design: I collaborated closely with backend engineers to design the GraphQL schema, aligning it with domain models and ensuring it met real-time data needs.
-Type Safety & Code Generation: We generated TypeScript types from the GraphQL schema, providing end-to-end type safety and reducing runtime errors.
-
-Mocking & Parallel Development: Frontend teams could develop features against a mocked schema using Apollo's mocking tools, decoupling frontend and backend development cycles.
-Performance Optimization: We optimized queries and used field-level resolvers in Absinthe to avoid N+1 query issues and improve response times.
-Schema Versioning & Deprecation: To prevent breaking changes, we established a versioning strategy and used deprecation directives, enabling gradual migrations.
-
-Result:
-This shift to a GraphQL-based contract significantly improved development speed and system stability. The frontend team could iterate rapidly without waiting for backend changes, and production incidents due to data mismatches dropped dramatically. The clear, self-documenting schema also streamlined onboarding for new team members, making it easier to understand the data flow across the stack.
+Mainly as nice forcing function to play around with all of these things. At least for me, its helped to demystify these tools we use everyday now. Can see some results below - i think I'll play around with the UI a bit more and also selecting different tokenizers.
 
 
 
-Dataloader - Elixir - to help batch and cache requests
-GraphQL reduces over-fetching and under-fetching of data. It lets you define your data needs in queries, which can act as a "self-documenting" contract.
+``` python
+# Function to get next token probabilities
+def get_next_token_probabilities(tokens):
+    input_ids = torch.tensor(tokens).unsqueeze(0)  # Add batch dimension
+    
+    with torch.no_grad():
+        outputs = model(input_ids)
+        logits = outputs.logits[:, -1, :]  # Get logits for the last token
 
-query GetPlant($id: ID!) {
-  plant(id: $id) {
-    name
-    environment {
-      temperature
-      humidity
+    probs = torch.nn.functional.softmax(logits, dim=-1)
+    top_probabilities, top_indices = torch.topk(probs, 10)
+    
+    top_tokens = [tokenizer.decode([idx]) for idx in top_indices[0]]
+    top_probabilities = top_probabilities[0].tolist()
+
+    return top_tokens, top_probabilities
+
+# Define the API endpoint
+@app.post("/predict")
+async def predict_next_token(input_data: TextInput):
+    print(input_data)
+    text = input_data.text
+    tokens = tokenizer.encode(text)
+    top_tokens, top_probabilities = get_next_token_probabilities(tokens)
+    
+    return {
+        "top_tokens": top_tokens,
+        "top_probabilities": top_probabilities
     }
-  }
-}
+
+# Run the API with: uvicorn main:app --reload
+"""
+curl -X 'POST' \
+  'http://127.0.0.1:8000/predict' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "text": "The boy jumped over the"
+}'
+"""
+```
+
+## Learned about Stable Diffusion
+
+After using DALL-E and RunwayML and nice segway from building a GPT I really wanted to know how **text to image** worked so I followed fast.ai's [Practical Deep Learning for Coders](https://course.fast.ai/Lessons/lesson9.html) to learn the internals. I wrote about [stable diffusion here](/posts/stable-diffusion).
 
 
-Fix re-rendering issues
+## Nature of Code
 
-Virtual DOM
+I joined a fun reading group for Daniel Shiffman's [Nature of Code](https://natureofcode.com/random/)
+
+## Made some interactive art
+
+-  I played around with pixelating my video feed  https://editor.p5js.org/houseofaragon/sketches/AOc9OEUVA
+- wanted to shoot particles from my finger  :point_right:  https://editor.p5js.org/houseofaragon/sketches/Zy36rgQxM
+- and to have sparkly hands :sparkle-stars:  https://editor.p5js.org/houseofaragon/sketches/mgFRKOM3i
+
+
+## Learned how to build a browser 
+
+I learned how to build a browser by working through  [Web Browser Engineering](https://browser.engineering/history.html)
+
+
+## Learned about Algorithmic Filmmaking
+
+- :movie:  I secretly have always wanted to make a film but i don't know anything about editing tools 
+ or cameras nor do i have the resources  -- so today I am going to take a look at how ML can help me.  I started this series about [Algorithmic Filmmaking](https://www.youtube.com/watch?v=N-4_Ey4ZH2k&list=PLWuCzxqIpJs_8IpPl1bkKNFAe98ejDHsQ&index=29) which just happens to use some of my favorite models (pose, face detection). Gonna see where it takes me :wind:  Yet another plug for the `Artist's way` :) 
+
+ 

@@ -16,12 +16,13 @@ export default function Work({projects}) {
               <h2 className="hidden text-3xl md:text-l md:block"><b>—</b> Work </h2>
               <br />
               <div className='description dark:text-slate-300'>
-                <p> I've worked on many projects ranging from microservices to design systems to scaling initiatives.  At work I write in <strong>Elixir</strong>, <strong>LiveView</strong>, and <strong>React / Typescript</strong>.
-                  I also have production experience with <strong>Node</strong>, <strong>Java</strong>, <strong>PHP</strong> and <strong>Python</strong>.
+                <p> I've worked on many projects, ranging from distributed systems to microservices, design systems, and scaling initiatives.</p>  
+                <br />
+                <p>At work, I write in <strong>Elixir</strong>, <strong>LiveView</strong>, and <strong>React / Typescript,</strong> and I have production experience with <strong>Node</strong>, <strong>Java</strong>, <strong>PHP,</strong> and <strong>Python</strong>.
                 </p>
                 <br />
                 <p>
-                I experiment with a wider range of technologies in my own personal projects which include: <strong>Machine Learning</strong>, <strong>CRDT</strong>'s, <strong>ThreeJS</strong>, <strong>D3</strong>
+                I experiment with a wider range of technologies in my own personal projects which include: <strong>Machine Learning</strong>, <strong>CRDT</strong>'s, <strong>ThreeJS</strong>, and<strong>D3.</strong>
                 </p>
                 <br />
                 <p>All my projects are open sourced on <a href="https://github.com/houseofaragon" target="blank" >github</a>.</p>
@@ -97,8 +98,8 @@ export async function getStaticProps() {
             title: "KSHACK Records",
             content: "Features interactive React and ThreeJS visuals, Audio player, static site generation with NextJS, and Strapi backend. Main site for NY based record label, KSHACK.",
             meta: "React + ThreeJS",
-            github: "https://github.com",
-            link: "https://google.com"
+            github: "https://github.com/houseofaragon/kshack/tree/revamp",
+            link: "https://kschk.com/"
           }
         }
       ]

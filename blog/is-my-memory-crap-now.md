@@ -1,15 +1,26 @@
 ---
-title: "Is my memory crap now?"
+title: "A not so simple pixel memory game"
 date: "2024-12-09"
-excerpt: "A not so simple (for me) memory game."
+excerpt: "An app thats asks if you can recreate a pixel grid from memory"
 ---
 
-# Is my memory crap now?
+# A not so simple pixel memory game
 
-I really should be interview prepping but instead I made this game that continues with the theme of focus / meditation.  It shows you a pixel grid for 1 minute, and then asks you to redraw it. Its been fun + challenging to play -- but darn is it hard to "win".
+I was inspired to build a game during a game jam at the [Recurse Center](https://www.recurse.com/). So I made this game that continues with the theme of [meditation](/posts/meditating-to-art).
 
-[Screen Recording 2025-02-04 at 5.28.22 PM.mp4](/user_uploads/13/uU7cYHytuU8Rbm2YZ_g0Dg5g/Screen-Recording-2025-02-04-at-5.28.22PM.mp4)
+The rules are simple: 
+1. You are shown a randomly colored pixel grid for 1 minute.
+2. Then you are asked to recreate the pixel grid from memory.
 
-i'd like to figure out how to generate shapes - or things that look familiar, the randomness is what makes it difficult
-- maybe show percentage of correct pixels
-- proud of myself for not using any AI help - so maybe that counts as prep
+Its been fun + challenging to play -- but darn is it hard to "win".
+
+[A pixel memory game](/images/memory.mp4)
+
+I have yet to actually recreate an original one, which makes me think I should have **levels** where it starts off easy then gradually gets more complex.
+
+I'd also like to figure out how to generate shapes - or things that look familiar, the randomness is what makes it difficult
+
+## Future Improvements
+- Show percentage of correct pixels
+- Generate shapes in the pixel grid
+- Score board?

@@ -17,8 +17,10 @@ export default function Index({ posts, preview }) {
             <h2 className="hidden text-2xl md:text-l md:block"><b>—</b> Writing </h2>
             <br/>
             <div className='description dark:text-slate-300 text-md'>
-              <p>I'm a creature of habit who keeps up with a daily work journal. I keep extensive documentation and I often write out snippets of code before I type it out because writing helps me synthesize the information better. 
+              <p>I'm a creature of habit who keeps up with a daily work journal but my writing is sporadic. 
               </p>
+              <br/>
+              <p>I've written about React <a href="/posts/look-into-react-memoization">rendering</a> and <a href="/posts/look-into-react-optimizing-performance">memoization</a>, building a <a href="/posts/homelab">homelab</a>, being a <a href="/posts/meditations-on-being-a-lead">lead</a>, <a href="/posts/building-local-first-collaboration">local-first software</a> and <a href="/posts/building-machine-learning-experiments">machine learning</a>, among various other random things.</p>
               <br/>
               <p>Presented here are some of those thoughts edited in a much more cohesive manner.</p>
             </div>

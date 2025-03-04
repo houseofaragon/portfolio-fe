@@ -5,19 +5,21 @@ export function Resume() {
       <h2 className="hidden text-3xl md:text-l md:block"><b>—</b> About </h2>
         <br />
         <p>Please get in touch:</p>
-        <h5> karen.c.aragon@gmail.com</h5>
+        <h5> karen.c.aragon [at] gmail.com</h5>
         <br/>
         <div className="description">
           <p>I have worked as an Engineering Manager, Tech Lead, and as a Fullstack IC on a diverse range of projects. I have:</p>
           <br />
-          <p className="light"><b>—</b> Built and tested applications in <strong>React/TS</strong> and <strong>Jest</strong></p>
-          <p className="light"><b>—</b> Built microservices in <strong>Node</strong> and <strong>Serverless</strong></p>
+          <p className="light"><b>—</b> Built microservices with <strong>Node</strong> and <strong>Serverless</strong></p>
+          <p className="light"><b>—</b> Developed and tested applications in <strong>React/TS</strong> and <strong>Jest</strong></p>
+          <p className="light"><b>—</b> Built and maintained distributed systems in <strong>Elixir</strong> and <strong>LiveView</strong></p>
           <p className="light"><b>—</b> Contributed to and maintained a design system in <strong>React/TS</strong> using <strong>StoryBook</strong></p>
           <p className="light"><b>—</b> Contributed to, refactored, and maintained monoliths in <strong>PHP</strong> </p>
-          <p className="light"><b>—</b> Spun up services and databases in <strong>Terraform</strong> </p>
-          <p><b>—</b> Wrote integration and e2e tests with <strong>Codeception/BDD</strong> </p>
+          <p className="light"><b>—</b> Provisioned services and databases in <strong>Terraform</strong> </p>
+          <p><b>—</b> Written integration and e2e tests with <strong>Codeception/BDD</strong> </p>
           <br />
-          <p className="light">I am skilled with all listed above. But, I will be the first to admit I am not an expert in any - because there's always something new to learn.</p>
+          <p className="light">  I am skilled in all of the above, but I’ll be the first to admit I’m not an expert in any of them — there’s always something new to learn.
+          </p>
         </div>
       </div>
       <div className="basis-2/3 l-contained pb-10">
@@ -26,7 +28,10 @@ export function Resume() {
             <div className="content md:pr-5 pt-4">
               <h3 className="text-lg mb-1">Bowery Farming</h3>
               <p className="text-slate-600 dark:text-slate-300">Lead Software Engineer</p>
-              <p className="text-slate-600 dark:text-slate-300">2022-2024</p>
+              <p className="text-slate-600 dark:text-slate-300">2023-2024</p>
+              <br />
+              <p className="text-slate-600 dark:text-slate-300">Senior Fullstack Engineer</p>
+              <p className="text-slate-600 dark:text-slate-300">2022-2023</p>
             </div>
           </li>
           <li>

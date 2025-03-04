@@ -2,6 +2,7 @@
 title: "Meditations on Being a Lead"
 date: "2025-02-09"
 excerpt: "Meditations on Being a Lead"
+tags: "React"
 ---
 
 # Meditations on Being a Lead
