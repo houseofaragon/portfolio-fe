@@ -1,8 +1,4 @@
 module.exports = {
-  i18n: {
-    locales: ['en'], // Example locales
-    defaultLocale: 'en',
-  },
   exportPathMap: async function() {
     const paths = {
       '/': { page: '/' },

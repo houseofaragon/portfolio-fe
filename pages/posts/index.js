@@ -20,7 +20,7 @@ export default function Index({ posts, preview }) {
               <p>I'm a creature of habit who keeps up with a daily work journal but my writing is sporadic. 
               </p>
               <br/>
-              <p>I've written about React <a href="/posts/look-into-react-memoization">rendering</a> and <a href="/posts/look-into-react-optimizing-performance">memoization</a>, building a <a href="/posts/homelab">homelab</a>, being a <a href="/posts/meditations-on-being-a-lead">lead</a>, <a href="/posts/building-local-first-collaboration">local-first software</a> and <a href="/posts/building-machine-learning-experiments">machine learning</a>, among various other random things.</p>
+              <p>I've written about React <a href="/posts/look-into-react-memoization.html">rendering</a> and <a href="/posts/look-into-react-optimizing-performance.html">memoization</a>, building a <a href="/posts/homelab.html">homelab</a>, being a <a href="/posts/meditations-on-being-a-lead.html">lead</a>, <a href="/posts/building-local-first-collaboration.html">local-first software</a> and <a href="/posts/building-machine-learning-experiments.html">machine learning</a>, among various other random things.</p>
               <br/>
               <p>Presented here are some of those thoughts edited in a much more cohesive manner.</p>
             </div>

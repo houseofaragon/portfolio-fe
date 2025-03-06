@@ -55,14 +55,14 @@ export function Resume() {
           <div className="content pr-5 pt-4">
             <h3 className="text-lg mb-1">Enigma</h3>
             <p className="text-slate-600 dark:text-slate-300">Frontend Software Engineer</p>
-            <p className="text-slate-600 dark:text-slate-300">2016</p>
+            <p className="text-slate-600 dark:text-slate-300">2017</p>
             </div>
           </li>
           <li>
             <div className="content pr-5 pt-4">
             <h3 className="text-lg mb-1">dMetrics</h3>
             <p className="text-slate-600 dark:text-slate-300">Frontend Software Engineer</p>
-            <p className="text-slate-600 dark:text-slate-300">2015</p>
+            <p className="text-slate-600 dark:text-slate-300">2015-2017</p>
             </div>
           </li>
         </ul>

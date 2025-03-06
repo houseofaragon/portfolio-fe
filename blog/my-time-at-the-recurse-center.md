@@ -89,7 +89,7 @@ curl -X 'POST' \
 
 ## Learned about Stable Diffusion
 
-After using DALL-E and RunwayML and nice segway from building a GPT I really wanted to know how **text to image** worked so I followed fast.ai's [Practical Deep Learning for Coders](https://course.fast.ai/Lessons/lesson9.html) to learn the internals. I wrote about [stable diffusion here](/posts/stable-diffusion).
+After using DALL-E and RunwayML and nice segway from building a GPT I really wanted to know how **text to image** worked so I followed fast.ai's [Practical Deep Learning for Coders](https://course.fast.ai/Lessons/lesson9.html) to learn the internals. I wrote about [stable diffusion here](/posts/a-stable-diffusion.html).
 
 
 ## Nature of Code

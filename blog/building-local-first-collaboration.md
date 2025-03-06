@@ -8,7 +8,7 @@ excerpt: "Building a collaboritive editing tool using Yjs, React, Y-Webrtc, and 
 
 This is my own personal journey into the field of local-first software and CRDT's (***C**onflict-free **R**eplicated Data **T**ypes* - an acronym I always have trouble remembering for some reason). 
 
-I also walkthrough for how I built my own personal [digital garden](https://maggieappleton.com/garden-history/) which is a collaboritive editing tool solely used by myself and personal friends. I even have it hosted on my own [personal server](/posts/running-your-own-homelab)!
+I also walkthrough for how I built my own personal [digital garden](https://maggieappleton.com/garden-history/) which is a collaboritive editing tool solely used by myself and personal friends. I even have it hosted on my own [personal server](/posts/homelab.html)!
 
 [garden-party.mp4](/images/garden-party.mp4)
 

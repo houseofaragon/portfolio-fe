@@ -18,7 +18,7 @@ export default function Work({projects}) {
               <div className='description dark:text-slate-300'>
                 <p> I've worked on many projects, ranging from distributed systems to microservices, design systems, and scaling initiatives.</p>  
                 <br />
-                <p>At work, I write in <strong>Elixir</strong>, <strong>LiveView</strong>, and <strong>React / Typescript,</strong> and I have production experience with <strong>Node</strong>, <strong>Java</strong>, <strong>PHP,</strong> and <strong>Python</strong>.
+                <p>At work, I write in <strong>Elixir</strong>, <strong>LiveView</strong>, and <strong>React / Typescript,</strong> and I have production experience with <strong>Node</strong>, Java, PHP, and Python.
                 </p>
                 <br />
                 <p>
@@ -46,7 +46,7 @@ export async function getStaticProps() {
             content: "Building interactive apps with ML using Transformers and ONNX",
             meta: "React + Webworkers + Transformers + ONNX",
             github: "https://github.com/houseofaragon/oracle-whisper",
-            link: "/posts/machine-learning-experiments"
+            link: "/posts/building-machine-learning-experiments.html"
           }
         },
         {
@@ -55,7 +55,7 @@ export async function getStaticProps() {
             content: "A real-time collaborative digital garden using CRDTs running on my own personal server.",
             meta: "React + CRDTs",
             github: "https://github.com/houseofaragon/digital-garden",
-            link: "/posts/local-first-collaboration"
+            link: "/posts/building-local-first-collaboration.html"
           }
         },
         {
@@ -72,17 +72,17 @@ export async function getStaticProps() {
             title: "Chrome Extensions + Machine Learning",
             content: "Building Chrome extensions for productivity and fun.",
             meta: "React + Chrome API + Transformers",
-            github: "https://github.com/houseofaragon/pmswithus",
-            link: "posts/building-chrome-extensions"
+            github: "https://github.com/houseofaragon/browser-ext-translate",
+            link: "posts/chrome-extensions.html"
           }
         },
         {
           attributes: {
-            title: "Algorithmic Filmmaking",
-            content: "A project that uses machine learning to generate film scripts and storyboards.",
-            meta: "Python + FFmpeg + Machine Learning",
-            github: "https://github.com",
-            link: "/posts/algorithmic-filmmaking"
+            title: "Interactive Sound Visualizer",
+            content: "Building an interactive sound visualizer with machine learning and shaders.",
+            meta: "HandPose Model + React + ThreeJS + WebAudio",
+            github: "https://github.com/houseofaragon/ml-hand-shader",
+            link: "/posts/ml-hand-shader.html"
           }
         },
         {

@@ -14,7 +14,7 @@ I was inspired while at the [Recurse Center](https://www.recurse.com/) to put th
 
 I learned I could use one to run my own private server. That meant connecting my raspberry pi to the internet and hosting my own apps on the raspberry pi. I also learned I could make it secure through a VPN, specifically Tailscale.
 
-I was also inspired to make my apps secure from learning about [local-first software](/posts/local-first-collaboration).
+I was also inspired to make my apps secure from learning about [local-first software](/posts/building-local-first-collaboration.html).
 
 Let's see about running our own homelab!
 

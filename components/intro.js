@@ -40,10 +40,10 @@ export default function Intro() {
       }}>
       <div style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "left" }}>
         <div className="pt-5 md:pt-0 text-left max-w-[400px]">
-          <p className="bold">Hello, I'm Karen. I'm an artist and software engineer.</p>
+          <p className="bold">Hello, I'm Karen.</p>
           <b>—</b>
-          <p>I'm currently on an engineering sabbatical at the Recurse Center.</p>
           <br />
+          <p className="bold">I'm an artist and software engineer.</p>
         </div>
       </div>
       <div

@@ -6,7 +6,7 @@ excerpt: "An app thats asks if you can recreate a pixel grid from memory"
 
 # A not so simple pixel memory game
 
-I was inspired to build a game during a game jam at the [Recurse Center](https://www.recurse.com/). So I made this game that continues with the theme of [meditation](/posts/meditating-to-art).
+I was inspired to build a game during a game jam at the [Recurse Center](https://www.recurse.com/). So I made this game that continues with the theme of [meditation](/posts/meditating-to-art.html).
 
 The rules are simple: 
 1. You are shown a randomly colored pixel grid for 1 minute.
